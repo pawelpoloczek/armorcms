@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'user.add' | trans }}</h1>
+        {{ form_start(formUser) }}
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formUser.username) }}</div>
+            <div class="form-errors">{{ form_errors(formUser.username) }}</div>
+            <div class="form-widget">{{ form_widget(formUser.username) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formUser.email) }}</div>
+            <div class="form-errors">{{ form_errors(formUser.email) }}</div>
+            <div class="form-widget">{{ form_widget(formUser.email) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formUser.password.first) }}</div>
+            <div class="form-errors">{{ form_errors(formUser.password.first) }}</div>
+            <div class="form-widget">{{ form_widget(formUser.password.first) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formUser.password.second) }}</div>
+            <div class="form-errors">{{ form_errors(formUser.password.second) }}</div>
+            <div class="form-widget">{{ form_widget(formUser.password.second) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                {{ form_widget(formUser.isAdmin) }}
+                {{ form_label(formUser.isAdmin) }}
+            </div>
+            <div class="form-errors">{{ form_errors(formUser.isAdmin) }}</div>
+        </div>
+        <div>
+            <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
+            {{ form_widget(formUser.save, { 'label': 'save_form' }) }}
+        </div>
+        {{ form_end(formUser) }}
+    </div>
+{% endblock %}

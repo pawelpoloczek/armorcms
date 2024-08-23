@@ -1,0 +1,5 @@
+/* A font by Ryoichi Tsunekawa -> http://bebasneue.com/ */
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('/assets/fonts/bebasneue/BebasNeue-Regular.otf') format('opentype');
+}

@@ -1,0 +1,139 @@
+/**
+* @author Paweł Poloczek <pawel@armorlab.pl>
+*/
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+    font-family: 'Lato', Arial, Tahoma sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    background-color: #232A31;
+    color: #424545;
+}
+
+input, select {
+    color: #424545;
+}
+
+.main-container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.login-form {
+    display: block;
+    margin: 180px auto 0 auto;
+    width: 320px;
+}
+
+.login-form .header {
+    padding: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.login-form .header h1 {
+    text-align: center;
+    padding: 10px;
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.login-form label,
+.login-form input,
+.login-form button {
+    display: block;
+    width: -moz-calc(100% - 20px);
+    width: -webkit-calc(100% - 20px);
+    width: -o-calc(100% - 20px);
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.login-form label {
+    margin: 0;
+    color: #FFF;
+}
+
+.login-form input {
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: -o-calc(100% - 40px);
+    width: calc(100% - 40px);
+    margin: 0 10px;
+}
+
+.login-form button {
+    margin-top: 35px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #656F79;
+    color: #FFF;
+}
+
+.login-form button:hover {
+    background-color: #2cc76a;
+}
+
+.login-form input {
+    background-color: #FFF;
+}
+
+.msg-box {
+    display: block;
+    padding: 15px;
+    color: #FFF;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+.msg-box .msg-icon {
+    float: left;
+    margin-right: 15px;
+}
+
+.msg-box .msg-content {
+    display: inline-block;
+}
+
+.msg-box .msg-close {
+    float: right;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.msg-box.error {
+    background: #e74c3c;
+}
+
+.msg-box.done {
+    background: #2ecc71;
+}
+
+.msg-box.warning {
+    background: #f1c40f;
+}
+
+.msg-box.info {
+    background: #2980b9;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo .first {
+    color: #2cc76a;
+}
+
+.logo .second {
+    color: #FFF;
+}

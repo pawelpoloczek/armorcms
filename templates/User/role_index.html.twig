@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'user.roles' | trans }}</h1>
+        <table class="admin-table" id="dataTable">
+            <thead>
+                <tr>
+                    <td>{{ 'table.id' | trans }}</td>
+                    <td>{{ 'table.name' | trans }}</td>
+                    <td>{{ 'table.description' | trans }}</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for role in roles %}
+                <tr>
+                    <td>{{role.key}}</td>
+                    <td>{{role.name}}</td>
+                    <td>{{role.description}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/assets/css/lato.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/admin/admin_login.css" />    
+{% endblock %}
+
+{% block body %}
+    <div class="login-form">
+        <form action="{{ path('app_login') }}" method="post">
+            <div class="header">
+                <span class="logo"><span class="first">Mail</span><span class="second">Orchestra</span></span>
+            </div>
+            <label for="username">{{ 'login.username' | trans }}:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+            <label for="password">{{ 'login.password' | trans }}:</label>
+            <input type="password" id="password" name="_password" />
+
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button type="submit">{{ 'login.sign_in' | trans }}</button>
+        </form>
+    </div>
+{% endblock %}

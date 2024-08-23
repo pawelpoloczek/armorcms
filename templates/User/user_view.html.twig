@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'user.preview' | trans }}</h1>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'table.id' | trans }}:  </span>
+            <span class="preview-value">{{ user.uuid }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'user.username' | trans }}:  </span>
+            <span class="preview-value">{{ user.username }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'user.email' | trans }}:  </span>
+            <span class="preview-value">{{ user.email }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'user.is_admin' | trans }}:  </span>
+            <span class="preview-value">
+                {% if user.admin %}{{ 'table.true' | trans }}{% else %}{{ 'table.false' | trans }}{% endif %}
+            </span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'user.roles.preview' | trans }}:  </span>
+            <span class="preview-value">
+                {% for role in user.roles %}
+                    <span class="inline-element">{{ role }}</span>
+                {% endfor %}
+            </span>
+        </div>
+        <div>
+            <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
+            <a href="{{ path('web_user_edit', {'uuid': user.uuid}) }}" class="edit-btn"><i class="fa fa-pencil" ></i>&nbsp{{ 'edit' | trans }}</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,5 @@
+controllers_web:
+    resource:
+        path: ../src/Web/Controller/
+        namespace: ArmorCMS\Web\Controller
+    type: attribute

@@ -1,0 +1,22 @@
+{% block message %}
+    {% for label, messages in app.session.flashbag.all %}
+        {% if label == 'error' %}
+            {% set fontClass = 'fa-exclamation-circle' %}
+        {% elseif label == 'warning' %}
+            {% set fontClass = 'fa-exclamation-triangle' %}
+        {% elseif label == 'done' %}
+            {% set fontClass = 'fa-check-circle ' %}
+        {% else %}
+            {% set fontClass = 'fa-info-circle' %}
+        {% endif %}
+        {% for message in messages %}
+            <div class="msg-box {{label}}">
+                <i class="fa {{fontClass}}" ></i>
+                <div class="msg-content">{{message}}</div>
+                <div class="msg-close">
+                    <i class="fa fa-times" ></i>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{app.request.locale}}">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex">
+        <meta name="robots" content="nofollow">
+        <title>
+            {% block title %} ArmorCMS - {{ 'title.admin_panel' | trans }} {% endblock %}
+        </title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/assets/css/admin/jquery.dataTables.min.css" />
+            <link rel="stylesheet" href="/assets/css/lato.css" />
+            <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+            <link rel="stylesheet" href="/assets/css/admin/admin_main.css" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="/favicon_admin.png" />
+    </head>
+    <body>
+        {% if app.user %}
+            {% include 'header.html.twig' %}
+            {% include 'aside.html.twig' %}
+        {% endif %}
+        
+        <div class="main-container">
+            {% include 'flashmsg.html.twig' %}
+            {% block body %}{% endblock %}
+        </div>
+
+        {% block javascripts %}
+            <script type="text/javascript" src="/assets/js/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="/assets/js/admin/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="/assets/js/admin/main.js"></script>
+            <script type="text/javascript" src="/assets/js/admin/menu.js"></script>
+            <script type="text/javascript" src="/assets/js/admin/modal.js"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,47 @@
+{% set actualPath =  app.request.getBaseUrl ~ app.request.getPathInfo %}
+
+<aside>
+    <nav class="main-menu">
+        <ul>    
+            <li>
+            	<a href="{{ path('dashboard') }}" {% if actualPath == path('dashboard') %}class="active"{% endif %}>
+            		<i class="fa fa-area-chart" ></i>{{ 'menu.dashboard' | trans }}
+            	</a>
+            </li>
+{#            <li class="menu-toggle">#}
+{#            	<a href="#" {% if 'contact' in actualPath %}class="active"{% endif %}>#}
+{#            		<i class="fa fa-address-book" ></i>{{ 'menu.contact' | trans }}#}
+{#            	</a>#}
+{#                <ul {% if 'contact' in actualPath %}style="display: block;"{% endif %}>#}
+{#                    <li>#}
+{#                        <a href="{{ path('web_contact_get_list') }}"  {% if actualPath == path('web_contact_get_list') %}class="active"{% endif %}>#}
+{#                            <i class="fa fa-address-book" ></i>{{ 'menu.contact' | trans }}#}
+{#                        </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </li>#}
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ROOT') %}
+            <li class="menu-toggle">
+            	<a href="#" {% if 'settings' in actualPath %}class="active"{% endif %}>
+            		<i class="fa fa-cogs" ></i>{{ 'menu.settings' | trans }}
+            	</a>
+                <ul {% if 'settings' in actualPath %}style="display: block;"{% endif %}>
+                    <li>
+                    	<a href="{{ path('web_user_get_list') }}" {% if actualPath == path('web_user_get_list') %}class="active"{% endif %}>
+                    		<i class="fa fa-users" ></i>{{ 'menu.users' | trans }}
+                    	</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('web_role_get_list') }}" {% if actualPath == path('web_role_get_list') %}class="active"{% endif %}>
+                            <i class="fa fa-shield" ></i>{{ 'user.roles' | trans }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    <div class="copyright">
+        <i class="fa fa-copyright" ></i>&nbsp{{ "now"|date("Y") }}&nbspPaweł&nbspPoloczek
+    </div>
+</aside>

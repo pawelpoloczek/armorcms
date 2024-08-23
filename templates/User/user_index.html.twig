@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'user.list' | trans }}</h1>
+        <div class="btn-container">
+            <a href="{{ path('web_user_create') }}" class="add-btn"><i class="fa fa-plus" ></i>&nbsp{{ 'user.add_new' | trans }}</a>
+        </div>
+        <table class="admin-table" id="dataTable">
+            <thead>
+                <tr>
+                    <td class="center">{{ 'table.delete' | trans }}</td>
+                    <td class="center">{{ 'table.id' | trans }}</td>
+                    <td>{{ 'user.username' | trans }}</td>
+                    <td>{{ 'user.email' | trans }}</td>
+                    <td>{{ 'user.is_admin' | trans }}</td>
+                    <td class="center">{{ 'table.actions' | trans }}</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td class="center fs20">
+                        <a href="{{ path('web_user_delete', {'uuid': user.uuid}) }}" class="delete" title="{{ 'table.delete' | trans }}">
+                            <i class="fa fa-trash" ></i>
+                        </a>
+                    </td>
+                    <td class="center">{{user.uuid}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td class="cell-text-center">
+                        {% if user.isAdmin %}
+                            {{ 'table.true' | trans }}
+{#                            <span class="active"></span>#}
+                        {% else %}
+                            {{ 'table.false' | trans }}
+{#                            <span class="inactive"></span>#}
+                        {% endif %}
+                    </td>
+                    <td class="center fs20">
+                        <a href="{{ path('web_user_edit', {'uuid': user.uuid}) }}" title="{{ 'table.edit' | trans }}">
+                            <i class="fa fa-pencil" ></i>
+                        </a>
+                        <a href="{{ path('web_user_view', {'uuid': user.uuid}) }}" title="{{ 'table.preview' | trans }}">
+                            <i class="fa fa-eye" ></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

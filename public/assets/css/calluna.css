@@ -1,0 +1,5 @@
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
+@font-face {
+    font-family: 'Calluna';
+    src: url('/assets/fonts/calluna/Calluna-Regular.otf') format('opentype');
+}
