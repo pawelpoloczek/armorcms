@@ -14,7 +14,7 @@ use Symfony\Component\Filesystem\Filesystem;
 final readonly class UpdateAvatarCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
-        private string $contactAvatarDirectory,
+        private string $userAvatarDirectory,
         private AvatarRepository $avatarRepository,
         private Filesystem $filesystem,
         private EntityManagerInterface $entityManager
@@ -28,7 +28,7 @@ final readonly class UpdateAvatarCommandHandler implements CommandHandlerInterfa
         $this->filesystem->remove(
             sprintf(
                 '%s/%s',
-                $this->contactAvatarDirectory,
+                $this->userAvatarDirectory,
                 $avatar->getFileName()
             )
         );
