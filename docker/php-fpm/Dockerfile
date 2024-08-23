@@ -10,7 +10,7 @@ COPY ["./docker/php-fpm/php-configure.sh", "/opt/bin/"]
 RUN /bin/bash /opt/bin/php-configure.sh
 
 RUN rm -rf /var/www/html/ \
-    && chown test -R www-data:www-data /var/www/
+    && chown -R www-data:www-data /var/www/
 
 #USER www-data
 #RUN usermod --non-unique --uid 1000 www-data
