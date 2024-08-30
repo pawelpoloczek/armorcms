@@ -1,4 +1,4 @@
-FROM nginx:1.25-alpine
+FROM nginx:1.27-alpine
 
 RUN apk --no-cache add shadow nano \
     && adduser -S www-data -u 1000 \
