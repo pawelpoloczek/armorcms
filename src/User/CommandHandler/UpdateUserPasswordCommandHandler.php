@@ -7,11 +7,13 @@ use ArmorCMS\Shared\CommandHandler\CommandHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use ArmorCMS\User\Command\UpdateUserPassword;
 use ArmorCMS\User\Repository\UserRepository;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final readonly class UpdateUserPasswordCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
         private UserRepository $userRepository,
+        private UserPasswordHasherInterface $passwordHasher,
         private EntityManagerInterface $entityManager
     ) {
     }
@@ -23,7 +25,9 @@ final readonly class UpdateUserPasswordCommandHandler implements CommandHandlerI
             return;
         }
 
-        $user->setPassword($command->password);
+        $user->setPassword(
+            $this->passwordHasher->hashPassword($user, $command->password)
+        );
 
         $this->entityManager->flush();
     }

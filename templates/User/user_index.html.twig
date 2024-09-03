@@ -41,6 +41,9 @@
                         <a href="{{ path('web_user_edit', {'uuid': user.uuid}) }}" title="{{ 'table.edit' | trans }}">
                             <i class="fa fa-pencil" ></i>
                         </a>
+                        <a href="{{ path('web_user_edit_password', {'uuid': user.uuid}) }}" title="{{ 'table.edit_password' | trans }}">
+                            <i class="fa fa-lock" ></i>
+                        </a>
                         <a href="{{ path('web_user_view', {'uuid': user.uuid}) }}" title="{{ 'table.preview' | trans }}">
                             <i class="fa fa-eye" ></i>
                         </a>

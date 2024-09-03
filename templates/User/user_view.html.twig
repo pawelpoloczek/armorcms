@@ -32,6 +32,7 @@
         <div>
             <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
             <a href="{{ path('web_user_edit', {'uuid': user.uuid}) }}" class="edit-btn"><i class="fa fa-pencil" ></i>&nbsp{{ 'edit' | trans }}</a>
+            <a href="{{ path('web_user_edit_password', {'uuid': user.uuid}) }}" class="edit-btn"><i class="fa fa-lock" ></i>&nbsp{{ 'edit_password' | trans }}</a>
         </div>
     </div>
 {% endblock %}
