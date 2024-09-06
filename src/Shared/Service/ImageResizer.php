@@ -47,7 +47,7 @@ final readonly class ImageResizer
 
         $photo = $this->imagine->open($fileNameWithPath);
         $photo->resize(new Box($width, $height))->save(
-            sprintf('%s%s/%s', $filePath, $sizeName, $fileName)
+            sprintf('%s/%s/%s', $filePath, $sizeName, $fileName)
         );
     }
 }

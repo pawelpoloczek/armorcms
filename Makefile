@@ -10,3 +10,6 @@ start-apache:
 	docker compose -f docker-apache/docker-compose.yml up -d
 stop-apache:
 	docker compose -f docker-apache/docker-compose.yml down --remove-orphans
+fixtures-apache:
+	docker exec armorcms-apache bin/console doctrine:migrations:migrate --no-interaction
+	docker exec armorcms-apache bin/console doctrine:fixtures:load --no-interaction

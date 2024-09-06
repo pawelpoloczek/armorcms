@@ -1,5 +1,6 @@
 services:
-    php-apache:
+    apache:
+        container_name: armorcms-apache
         build:
             context: "../"
             dockerfile: "./docker-apache/Dockerfile"
@@ -14,6 +15,7 @@ services:
             - web
 
     mysql:
+        container_name: armorcms-mysql
         image: mysql:${MYSQL_VERSION}
         # Uncomment line below if you are using a Mac with the M1 chip
         #platform: linux/amd64

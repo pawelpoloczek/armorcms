@@ -1,6 +1,6 @@
 services:
     database:
-        container_name: armorcms-database
+        container_name: armorcms-postgres
         image: postgres:${POSTGRES_VERSION}
         ports:
             - "5432:5432"
