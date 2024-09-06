@@ -15,7 +15,7 @@ services:
         container_name: armorcms-php-fpm
         build:
             context: '../'
-            dockerfile: './docker/php-fpm/Dockerfile'
+            dockerfile: './docker-nginx/php-fpm/Dockerfile'
         ports:
             - "9000:9000"
         volumes:
@@ -30,7 +30,7 @@ services:
         container_name: armorcms-nginx
         build:
             context: '../'
-            dockerfile: './docker/nginx/Dockerfile'
+            dockerfile: './docker-nginx/nginx/Dockerfile'
         ports:
             - "8080:80"
         volumes:

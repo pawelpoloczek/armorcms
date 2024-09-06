@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArmorCMS\User\Command;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Uid\Uuid;
 
 final readonly class CreateUser
@@ -12,7 +13,8 @@ final readonly class CreateUser
         public string $username,
         public string $email,
         public string $password,
-        public bool $isAdmin
+        public bool $isAdmin,
+        public ?UploadedFile $avatar
     ) {
     }
 }

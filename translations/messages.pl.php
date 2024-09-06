@@ -40,6 +40,7 @@ return [
     'user.list' => 'Lista użytkowników',
     'user.username' => 'Nazwa użytkownika',
     'user.email' => 'Adres email',
+    'user.avatar' => 'Avatar',
     'user.is_admin' => 'Administrator',
     'user.not_found' => 'Użytkownik nie został znaleziony',
     'user.delete_success' => 'Użytkownik został pomyślnie usunięty',

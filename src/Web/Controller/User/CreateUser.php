@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArmorCMS\Web\Controller\User;
 
 use ArmorCMS\User\Command\CreateUser as CreateUserCommand;
+use ArmorCMS\User\Command\GenerateAvatarThumbnails;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
 use ArmorCMS\Web\Form\User\CreateUserType;
 use ArmorCMS\Web\Trait\FlashMessageTrait;
@@ -39,14 +40,20 @@ final class CreateUser extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $userUuid = $this->uuidFactory->create();
+
             $this->commandBus->dispatch(
                 new CreateUserCommand(
-                    $this->uuidFactory->create(),
+                    $userUuid,
                     $form->getData()['username'],
                     $form->getData()['email'],
                     $form->getData()['password'],
-                    $form->getData()['isAdmin']
+                    $form->getData()['isAdmin'],
+                    $form->getData()['avatar']
                 )
+            );
+            $this->commandBus->dispatch(
+                new GenerateAvatarThumbnails($userUuid)
             );
 
             $this->setFlashMessage(

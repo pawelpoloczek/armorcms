@@ -10,10 +10,12 @@ use function sprintf;
 
 final readonly class ImageResizer
 {
+    private Imagine $imagine;
+
     public function __construct(
-        private array $thumbnailSizes,
-        private Imagine $imagine
+        private array $thumbnailSizes
     ) {
+        $this->imagine = new Imagine();
     }
 
     public function createThumbnails(
@@ -32,7 +34,7 @@ final readonly class ImageResizer
         int $maxWidth,
         int $maxHeight
     ): void {
-        $fileNameWithPath = sprintf('%s%s', $filePath, $fileName);
+        $fileNameWithPath = sprintf('%s/%s', $filePath, $fileName);
         [$imageWidth, $imageHeight] = getimagesize($fileNameWithPath);
         $ratio = $imageWidth / $imageHeight;
         $width = $maxWidth;
