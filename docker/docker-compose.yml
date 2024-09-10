@@ -17,13 +17,20 @@ services:
 
     mysql:
         container_name: armorcms-mysql
-        image: mysql:${MYSQL_VERSION}
+        image: mysql:8.0.27
         volumes:
             - database-volume:/var/lib/mysql:rw
         command:
             - "--default-authentication-plugin=mysql_native_password"
-        env_file:
-            - .env
+#        env_file:
+#            - .env
+        environment:
+            MYSQL_ROOT_PASSWORD: armorcms
+            MYSQL_DATABASE: armorcms
+            MYSQL_USER: armorcms
+            MYSQL_PASSWORD: armorcms
+        ports:
+            - 3306:3306
         networks:
             - web
 
