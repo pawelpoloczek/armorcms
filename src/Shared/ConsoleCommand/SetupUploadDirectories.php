@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace ArmorCMS\Shared\ConsoleCommand;
@@ -14,7 +13,7 @@ final class SetupUploadDirectories extends Command
     private Filesystem $filesystem;
 
     public function __construct(
-        private string $userAvatarDirectory,
+        private readonly string $userAvatarDirectory,
         private readonly array $thumbnailSizes
     ) {
         parent::__construct('armorcms:setup-upload-directories');
@@ -23,9 +22,11 @@ final class SetupUploadDirectories extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        if (false === $this->filesystem->exists($this->userAvatarDirectory)) {
-            $this->filesystem->mkdir($this->userAvatarDirectory);
+        if ($this->filesystem->exists($this->userAvatarDirectory)) {
+            $this->filesystem->remove($this->userAvatarDirectory);
         }
+
+        $this->filesystem->mkdir($this->userAvatarDirectory);
 
         foreach ($this->thumbnailSizes as $thumbnailName => $thumbnailSize) {
             $thumbnailDirectory = sprintf('%s/%s', $this->userAvatarDirectory, $thumbnailName);

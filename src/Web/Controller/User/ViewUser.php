@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace ArmorCMS\Web\Controller\User;
 
+use ArmorCMS\User\Repository\AvatarRepository;
 use ArmorCMS\User\Repository\UserRepository;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
 use ArmorCMS\Web\Trait\FlashMessageTrait;
@@ -21,7 +22,9 @@ final class ViewUser extends AbstractController
 
     public function __construct(
         private readonly UserRepository $userRepository,
-        private readonly TranslatorInterface $translator
+        private readonly TranslatorInterface $translator,
+        private readonly AvatarRepository $avatarRepository,
+        private readonly string $userAvatarWebPath
     ) {
     }
 
@@ -46,8 +49,19 @@ final class ViewUser extends AbstractController
             return $this->redirectToRoute('web_user_get_list');
         }
 
+        $avatar = $this->avatarRepository->findOneBy(['user' => $user]);
+        if (null !== $avatar) {
+            $avatar = sprintf(
+                '%s/%s/%s',
+                $this->userAvatarWebPath,
+                'large',
+                $avatar->getOriginalName()
+            );
+        }
+
         return $this->render('User/user_view.html.twig', [
             'user' => $user,
+            'avatar' => $avatar,
         ]);
     }
 }

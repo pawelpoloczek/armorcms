@@ -12,4 +12,5 @@
 - wpiąć google analitycs (może moduł w panelu)
 - moduł do integracji z wizytówką google
 
-- przygotować setup katalogów dla obrazków przy stawianiu projektu
+- wyświetlanie aktualnego avatara na edycji usera
+- możliwość usunięcia avatara na edycji usera

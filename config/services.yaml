@@ -8,6 +8,7 @@ parameters:
     translatable_locale: 'pl_PL'
     supported_locales: ['pl_PL', 'en_US']
     user_avatar_directory: '%kernel.project_dir%/public/uploads/user/avatar'
+    user_avatar_web_path: '/uploads/user/avatar'
     thumbnail_sizes:
         icon:
             width: 32
@@ -29,6 +30,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         bind:
             $userAvatarDirectory: '%user_avatar_directory%'
+            $userAvatarWebPath: '%user_avatar_web_path%'
             $thumbnailSizes: '%thumbnail_sizes%'
 
     # makes classes in src/ available to be used as services

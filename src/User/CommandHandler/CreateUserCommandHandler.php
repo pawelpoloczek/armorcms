@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace ArmorCMS\User\CommandHandler;
 
 use ArmorCMS\Shared\CommandHandler\CommandHandlerInterface;
+use ArmorCMS\Shared\Service\ImageResizer;
 use ArmorCMS\User\Entity\Avatar;
 use ArmorCMS\User\Service\AvatarUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,7 +19,9 @@ final readonly class CreateUserCommandHandler implements CommandHandlerInterface
         private EntityManagerInterface $entityManager,
         private UserPasswordHasherInterface $passwordHasher,
         private AvatarUploader $uploader,
-        private UuidFactory $uuidFactory
+        private UuidFactory $uuidFactory,
+        private ImageResizer $imageResizer,
+        private string $userAvatarDirectory
     ) {
     }
 
@@ -49,6 +52,11 @@ final readonly class CreateUserCommandHandler implements CommandHandlerInterface
                 $user
             );
             $this->entityManager->persist($avatar);
+
+            $this->imageResizer->createThumbnails(
+                $avatar->getOriginalName(),
+                $this->userAvatarDirectory
+            );
         }
 
         $this->entityManager->flush();

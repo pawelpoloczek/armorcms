@@ -29,6 +29,14 @@
                 {% endfor %}
             </span>
         </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'user.avatar' | trans }}:  </span>
+            <span class="preview-value">
+                {% if avatar %}
+                    <img src="{{ avatar }}"  alt="{{ 'user.avatar.not_found' | trans }}"/>
+                {% endif %}
+            </span>
+        </div>
         <div>
             <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
             <a href="{{ path('web_user_edit', {'uuid': user.uuid}) }}" class="edit-btn"><i class="fa fa-pencil" ></i>&nbsp{{ 'edit' | trans }}</a>

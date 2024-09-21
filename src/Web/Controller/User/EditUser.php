@@ -65,7 +65,8 @@ final class EditUser extends AbstractController
                 new UpdateUser(
                     $userUuid,
                     $form->getData()['email'],
-                    $form->getData()['isAdmin']
+                    $form->getData()['isAdmin'],
+                    $form->getData()['avatar']
                 )
             );
 
