@@ -10,7 +10,7 @@ services:
         depends_on:
             - mysql
         volumes:
-            - ./../:/var/www/html/
+            - ./../:/var/www/html:rw
             - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
         networks:
             - web

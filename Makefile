@@ -9,6 +9,8 @@ start:
 	docker exec armorcms-apache bin/console armorcms:setup-upload-directories
 stop:
 	docker compose -f docker/docker-compose.yml down --remove-orphans
+diff:
+	docker exec armorcms-apache bin/console doctrine:migrations:diff --no-interaction
 fixtures:
 	docker exec armorcms-apache bin/console doctrine:migrations:migrate --no-interaction
 	docker exec armorcms-apache bin/console doctrine:fixtures:load --no-interaction

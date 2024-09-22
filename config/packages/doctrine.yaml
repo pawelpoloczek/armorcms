@@ -21,6 +21,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/User/Entity'
                 prefix: 'ArmorCMS\User\Entity'
                 alias: User
+            Article:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Article/Entity'
+                prefix: 'ArmorCMS\Article\Entity'
+                alias: Article
         controller_resolver:
             auto_mapping: false
 

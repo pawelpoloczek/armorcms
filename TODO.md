@@ -1,12 +1,11 @@
 # TODO
 
-- dodać możliwość dodawania avatarów dla użytkowników
-- dodać artykuły
+- dodać artykuły + seo
 - dodać menu
 - dodać pozycje menu (razem z zagnieżdżaniem)
 - dodać info boxy / text blocki
 - dodać galerie
-- dodać kategorie artykułów
+- dodać kategorie artykułów + seo
 - dodać seo (uwzględnić sitemapę)
 - dodać analitykę
 - wpiąć google analitycs (może moduł w panelu)
