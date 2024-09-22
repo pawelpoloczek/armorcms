@@ -18,3 +18,8 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install mysqli pdo pdo_mysql intl opcache bcmath zip sockets curl pcntl
 
 COPY ./docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY ./docker/uploads.ini /usr/local/etc/php/conf.d/uploads.ini
+
+WORKDIR /var/www/html/
+
+EXPOSE 80
