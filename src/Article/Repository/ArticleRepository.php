@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace ArmorCMS\Article\Repository;
 
+use ArmorCMS\Article\DTO\GetArticle;
 use ArmorCMS\Article\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use ArmorCMS\Shared\Repository\EntityRepository;
-use ArmorCMS\User\DTO\GetAvatar;
 use Symfony\Component\Uid\Uuid;
 
 /**
@@ -28,14 +28,15 @@ final class ArticleRepository extends EntityRepository
 
     /**
      * @param Article $entity
-     * @return GetAvatar
+     * @return GetArticle
      */
     protected function getMappedEntity(mixed $entity): mixed
     {
-        return new GetAvatar(
+        return new GetArticle(
             $entity->getUuid(),
-            $entity->getFileName(),
-            $entity->getOriginalName()
+            $entity->getTitle(),
+            $entity->isActive(),
+            $entity->getSlug()
         );
     }
 }

@@ -4,15 +4,15 @@ services:
         build:
             context: ../
             dockerfile: ./docker/Dockerfile
-#        user: ${UID}
         ports:
             - 8080:80
         depends_on:
-            - mysql
+            mysql:
+                condition: service_healthy
         volumes:
             - ./../:/var/www/html:rw
         networks:
-            - web
+            - armorcms-network
 
     mysql:
         container_name: armorcms-mysql
@@ -26,10 +26,15 @@ services:
         ports:
             - 3306:3306
         networks:
-            - web
+            - armorcms-network
+        healthcheck:
+            test: "/usr/bin/mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD --execute \"SHOW DATABASES;\""
+            interval: 2s
+            timeout: 20s
+            retries: 10
 
 volumes:
     database-volume:
 
 networks:
-    web:
+    armorcms-network:

@@ -29,16 +29,86 @@ class Article
         #[ORM\Column(type: Types::STRING, length: 255)]
         private string $slug,
         #[ORM\Column(type: Types::BOOLEAN)]
-        private string $isActive,
+        private bool $isActive,
         #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
-        private DateTimeImmutable $publicationDate,
+        private ?DateTimeImmutable $publicationDate,
         #[ORM\Column(type: Types::STRING, length: 127)]
-        private string $author
+        private string $author,
+        #[ORM\Column(type: Types::TEXT)]
+        private string $content,
+        #[ORM\OneToOne(targetEntity: Seo::class)]
+        #[ORM\JoinColumn(name: 'seo_id', referencedColumnName: 'id')]
+        private readonly Seo $seo
     ) {
     }
 
     public function getUuid(): Uuid
     {
         return $this->uuid;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function changeTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function changeSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->isActive;
+    }
+
+    public function changeActivity(bool $isActive): void
+    {
+        $this->isActive = $isActive;
+    }
+
+    public function getPublicationDate(): ?DateTimeImmutable
+    {
+        return $this->publicationDate;
+    }
+
+    public function changePublicationDate(DateTimeImmutable $publicationDate): void
+    {
+        $this->publicationDate = $publicationDate;
+    }
+
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    public function changeAuthor(string $author): void
+    {
+        $this->author = $author;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    public function changeContent(string $content): void
+    {
+        $this->content = $content;
+    }
+
+    public function getSeo(): Seo
+    {
+        return $this->seo;
     }
 }

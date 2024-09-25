@@ -28,7 +28,7 @@ class Seo
         #[ORM\Column(type: Types::STRING, length: 255)]
         private string $description,
         #[ORM\Column(type: Types::JSON)]
-        private string $robots,
+        private array $robots,
         #[ORM\Column(type: Types::STRING, length: 127)]
         private string $ogTitle,
         #[ORM\Column(type: Types::STRING, length: 255)]
@@ -43,5 +43,75 @@ class Seo
     public function getUuid(): Uuid
     {
         return $this->uuid;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function changeTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function changeDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function getRobots(): array
+    {
+        return $this->robots;
+    }
+
+    public function changeRobots(array $robots): void
+    {
+        $this->robots = $robots;
+    }
+
+    public function getOgTitle(): string
+    {
+        return $this->ogTitle;
+    }
+
+    public function changeOgTitle(string $ogTitle): void
+    {
+        $this->ogTitle = $ogTitle;
+    }
+
+    public function getOgDescription(): string
+    {
+        return $this->ogDescription;
+    }
+
+    public function changeOgDescription(string $ogDescription): void
+    {
+        $this->ogDescription = $ogDescription;
+    }
+
+    public function getOgSection(): string
+    {
+        return $this->ogSection;
+    }
+
+    public function changeOgSection(string $ogSection): void
+    {
+        $this->ogSection = $ogSection;
+    }
+
+    public function getOgTags(): array
+    {
+        return $this->ogTags;
+    }
+
+    public function changeOgTags(array $ogTags): void
+    {
+        $this->ogTags = $ogTags;
     }
 }
