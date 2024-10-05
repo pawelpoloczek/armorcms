@@ -58,12 +58,10 @@ final class CreateArticleType extends AbstractType
             ])
             ->add('seoOgTags', CollectionType::class, [
                 'entry_type' => TextType::class,
-                'entry_options' => [
-                    'help' => 'You can edit this name here.',
-                ],
-                'prototype_options'  => [
-                    'help' => 'You can enter a new name here.',
-                ],
+                'allow_add' => true,
+                'allow_delete' => true,
+                'prototype' => true,
+                'prototype_data' => 'New Tag Placeholder',
             ])
             ->add('save', SubmitType::class);
     }
