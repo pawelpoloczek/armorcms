@@ -8,18 +8,18 @@
             		<i class="fa fa-area-chart" ></i>{{ 'menu.dashboard' | trans }}
             	</a>
             </li>
-{#            <li class="menu-toggle">#}
-{#            	<a href="#" {% if 'contact' in actualPath %}class="active"{% endif %}>#}
-{#            		<i class="fa fa-address-book" ></i>{{ 'menu.contact' | trans }}#}
-{#            	</a>#}
-{#                <ul {% if 'contact' in actualPath %}style="display: block;"{% endif %}>#}
-{#                    <li>#}
-{#                        <a href="{{ path('web_contact_get_list') }}"  {% if actualPath == path('web_contact_get_list') %}class="active"{% endif %}>#}
-{#                            <i class="fa fa-address-book" ></i>{{ 'menu.contact' | trans }}#}
-{#                        </a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            </li>#}
+            <li class="menu-toggle">
+            	<a href="#" {% if 'cms' in actualPath %}class="active"{% endif %}>
+            		<i class="fa fa-file-text" ></i>{{ 'menu.cms' | trans }}
+            	</a>
+                <ul {% if 'pages' in actualPath %}style="display: block;"{% endif %}>
+                    <li>
+                        <a href="{{ path('web_page_get_list') }}"  {% if actualPath == path('web_page_get_list') %}class="active"{% endif %}>
+                            <i class="fa fa-files-o" ></i>{{ 'menu.pages' | trans }}
+                        </a>
+                    </li>
+                </ul>
+            </li>
             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ROOT') %}
             <li class="menu-toggle">
             	<a href="#" {% if 'settings' in actualPath %}class="active"{% endif %}>
