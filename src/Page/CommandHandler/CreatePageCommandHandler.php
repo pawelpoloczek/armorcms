@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Article\CommandHandler;
+namespace ArmorCMS\Page\CommandHandler;
 
-use ArmorCMS\Article\Command\CreateArticle;
-use ArmorCMS\Article\Entity\Article;
-use ArmorCMS\Article\Entity\Seo;
+use ArmorCMS\Page\Command\CreatePage;
+use ArmorCMS\Page\Entity\Page;
+use ArmorCMS\Page\Entity\Seo;
 use ArmorCMS\Shared\CommandHandler\CommandHandlerInterface;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Uid\Factory\UuidFactory;
 
-final readonly class CreateArticleCommandHandler implements CommandHandlerInterface
+final readonly class CreatePageCommandHandler implements CommandHandlerInterface
 {
     public function __construct(
         private UuidFactory $uuidFactory,
@@ -19,7 +19,7 @@ final readonly class CreateArticleCommandHandler implements CommandHandlerInterf
     ) {
     }
 
-    public function __invoke(CreateArticle $command): void
+    public function __invoke(CreatePage $command): void
     {
         $seo = new Seo(
             $this->uuidFactory->create(),
@@ -39,7 +39,7 @@ final readonly class CreateArticleCommandHandler implements CommandHandlerInterf
             $publicationDate = new DateTimeImmutable();
         }
 
-        $article = new Article(
+        $page = new Page(
             $command->uuid,
             $command->title,
             $command->slug,
@@ -50,7 +50,7 @@ final readonly class CreateArticleCommandHandler implements CommandHandlerInterf
             $seo
         );
 
-        $this->entityManager->persist($article);
+        $this->entityManager->persist($page);
         $this->entityManager->flush();
     }
 }

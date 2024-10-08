@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Article\Entity;
+namespace ArmorCMS\Page\Entity;
 
-use ArmorCMS\Article\Repository\SeoRepository;
+use ArmorCMS\Page\Repository\SeoRepository;
 use ArmorCMS\Shared\Trait\Blameable;
 use ArmorCMS\Shared\Trait\Identifyable;
 use ArmorCMS\Shared\Trait\Timestampable;

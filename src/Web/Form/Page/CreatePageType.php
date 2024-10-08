@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Web\Form\Article;
+namespace ArmorCMS\Web\Form\Page;
 
-use ArmorCMS\Article\Enum\SeoRobots;
+use ArmorCMS\Page\Enum\SeoRobots;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -13,27 +13,27 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class CreateArticleType extends AbstractType
+final class CreatePageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => 'article.title',
+                'label' => 'page.title',
             ])
             ->add('slug', TextType::class, [
-                'label' => 'article.slug',
+                'label' => 'page.slug',
             ])
             ->add('isActive', CheckboxType::class, [
                 'attr' => ['class' => 'checkbox-custom'],
                 'label_attr' => ['class' => 'checkbox-custom-label'],
-                'label' => 'article.is_active',
+                'label' => 'page.is_active',
             ])
             ->add('author', TextType::class, [
-                'label' => 'article.author',
+                'label' => 'page.author',
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'article.content',
+                'label' => 'page.content',
             ])
             ->add('seoTitle', TextType::class, [
                 'label' => 'seo.title',

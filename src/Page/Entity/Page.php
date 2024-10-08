@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Article\Entity;
+namespace ArmorCMS\Page\Entity;
 
-use ArmorCMS\Article\Repository\ArticleRepository;
+use ArmorCMS\Page\Repository\PageRepository;
 use ArmorCMS\Shared\Trait\Blameable;
 use ArmorCMS\Shared\Trait\Identifyable;
 use ArmorCMS\Shared\Trait\Timestampable;
@@ -13,9 +13,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 
-#[ORM\Entity(repositoryClass: ArticleRepository::class)]
-#[ORM\Table(name: 'article')]
-class Article
+#[ORM\Entity(repositoryClass: PageRepository::class)]
+#[ORM\Table(name: 'page')]
+class Page
 {
     use Identifyable;
     use Timestampable;

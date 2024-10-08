@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Article\Repository;
+namespace ArmorCMS\Page\Repository;
 
-use ArmorCMS\Article\Entity\Seo;
+use ArmorCMS\Page\Entity\Seo;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Uid\Uuid;

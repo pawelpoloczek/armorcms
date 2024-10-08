@@ -6,7 +6,7 @@ namespace ArmorCMS\User\Repository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use ArmorCMS\Shared\Repository\EntityRepository;
-use ArmorCMS\User\DTO\GetAvatar;
+use ArmorCMS\User\DTO\Avatar as AvatarDTO;
 use ArmorCMS\User\Entity\Avatar;
 use Symfony\Component\Uid\Uuid;
 
@@ -28,11 +28,11 @@ final class AvatarRepository extends EntityRepository
 
     /**
      * @param Avatar $entity
-     * @return GetAvatar
+     * @return Avatar
      */
     protected function getMappedEntity(mixed $entity): mixed
     {
-        return new GetAvatar(
+        return new AvatarDTO(
             $entity->getUuid(),
             $entity->getFileName(),
             $entity->getOriginalName()

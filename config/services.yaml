@@ -39,7 +39,7 @@ services:
         resource: '../src/'
         exclude:
             - '../src/User/Entity/'
-            - '../src/Article/Entity/'
+            - '../src/Page/Entity/'
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed

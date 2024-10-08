@@ -6,7 +6,7 @@ namespace ArmorCMS\User\DTO;
 
 use Symfony\Component\Uid\Uuid;
 
-final readonly class GetAvatar
+final readonly class Avatar
 {
     public function __construct(
         public Uuid $uuid,

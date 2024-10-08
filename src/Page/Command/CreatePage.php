@@ -1,12 +1,12 @@
 <?php
 declare( strict_types=1 );
 
-namespace ArmorCMS\Article\Command;
+namespace ArmorCMS\Page\Command;
 
-use ArmorCMS\Article\DTO\Seo;
+use ArmorCMS\Page\DTO\Seo;
 use Symfony\Component\Uid\Uuid;
 
-final readonly class CreateArticle
+final readonly class CreatePage
 {
     public function __construct(
         public Uuid $uuid,

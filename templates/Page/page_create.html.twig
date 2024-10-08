@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'page.add' | trans }}</h1>
+        {{ form_start(formArticle) }}
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formpage.username) }}</div>
+            <div class="form-errors">{{ form_errors(formpage.username) }}</div>
+            <div class="form-widget">{{ form_widget(formpage.username) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formpage.email) }}</div>
+            <div class="form-errors">{{ form_errors(formpage.email) }}</div>
+            <div class="form-widget">{{ form_widget(formpage.email) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formpage.password.first) }}</div>
+            <div class="form-errors">{{ form_errors(formpage.password.first) }}</div>
+            <div class="form-widget">{{ form_widget(formpage.password.first) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formpage.password.second) }}</div>
+            <div class="form-errors">{{ form_errors(formpage.password.second) }}</div>
+            <div class="form-widget">{{ form_widget(formpage.password.second) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">
+                {{ form_widget(formpage.isAdmin) }}
+                {{ form_label(formpage.isAdmin) }}
+            </div>
+            <div class="form-errors">{{ form_errors(formpage.isAdmin) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formpage.avatar) }}</div>
+            <div class="form-errors">{{ form_errors(formpage.avatar) }}</div>
+            <div class="form-widget">{{ form_widget(formpage.avatar) }}</div>
+        </div>
+        <div>
+            <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
+            {{ form_widget(formpage.save, { 'label': 'save_form' }) }}
+        </div>
+        {{ form_end(formArticle) }}
+    </div>
+{% endblock %}

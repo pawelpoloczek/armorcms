@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Article\DTO;
+namespace ArmorCMS\Page\DTO;
 
 use Symfony\Component\Uid\Uuid;
 
-final readonly class GetArticle
+final readonly class Page
 {
     public function __construct(
         public Uuid $uuid,

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace ArmorCMS\Article\DTO;
+namespace ArmorCMS\Page\DTO;
 
 use Symfony\Component\Uid\Uuid;
 

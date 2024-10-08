@@ -1,7 +1,7 @@
 <?php
 declare( strict_types=1 );
 
-namespace ArmorCMS\Article\Enum;
+namespace ArmorCMS\Page\Enum;
 
 enum SeoRobots: string
 {
