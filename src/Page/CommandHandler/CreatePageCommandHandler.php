@@ -23,13 +23,13 @@ final readonly class CreatePageCommandHandler implements CommandHandlerInterface
     {
         $seo = new Seo(
             $this->uuidFactory->create(),
-            $command->seo->title,
-            $command->seo->description,
-            $command->seo->robots,
-            $command->seo->ogTitle,
-            $command->seo->ogDescription,
-            $command->seo->ogSection,
-            $command->seo->ogTags
+            $command->seo->title ?: $command->title,
+            $command->seo->description ?: null,
+            $command->seo->robots ?: [],
+            $command->seo->ogTitle ?: $command->title,
+            $command->seo->ogDescription ?: null,
+            $command->seo->ogSection ?: null,
+            $command->seo->ogTags ?: []
         );
 
         $this->entityManager->persist($seo);

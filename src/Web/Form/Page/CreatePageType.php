@@ -37,24 +37,29 @@ final class CreatePageType extends AbstractType
             ])
             ->add('seoTitle', TextType::class, [
                 'label' => 'seo.title',
+                'required' => false,
             ])
             ->add('seoDescription', TextType::class, [
                 'label' => 'seo.description',
+                'required' => false,
             ])
             ->add('robots', ChoiceType::class, [
                 'label' => 'seo.robots',
-                'expanded' => true,
+                'expanded' => false,
                 'multiple' => true,
                 'choices' => array_column(SeoRobots::cases(), 'name', 'value'),
             ])
             ->add('seoOgTitle', TextType::class, [
                 'label' => 'seo.ogTitle',
+                'required' => false,
             ])
             ->add('seoOgDescription', TextType::class, [
                 'label' => 'seo.ogDescription',
+                'required' => false,
             ])
             ->add('seoOgSection', TextType::class, [
                 'label' => 'seo.ogSection',
+                'required' => false,
             ])
             ->add('seoOgTags', CollectionType::class, [
                 'entry_type' => TextType::class,
@@ -62,6 +67,7 @@ final class CreatePageType extends AbstractType
                 'allow_delete' => true,
                 'prototype' => true,
                 'prototype_data' => 'New Tag Placeholder',
+                'label' => 'seo.ogTags',
             ])
             ->add('save', SubmitType::class);
     }

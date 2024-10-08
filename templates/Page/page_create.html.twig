@@ -3,43 +3,73 @@
 {% block body %}
     <div class="container">
         <h1>{{ 'page.add' | trans }}</h1>
-        {{ form_start(formArticle) }}
+        {{ form_start(formPage) }}
         <div class="form-row">
-            <div class="form-label">{{ form_label(formpage.username) }}</div>
-            <div class="form-errors">{{ form_errors(formpage.username) }}</div>
-            <div class="form-widget">{{ form_widget(formpage.username) }}</div>
+            <div class="form-label">{{ form_label(formPage.title) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.title) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.title) }}</div>
         </div>
         <div class="form-row">
-            <div class="form-label">{{ form_label(formpage.email) }}</div>
-            <div class="form-errors">{{ form_errors(formpage.email) }}</div>
-            <div class="form-widget">{{ form_widget(formpage.email) }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">{{ form_label(formpage.password.first) }}</div>
-            <div class="form-errors">{{ form_errors(formpage.password.first) }}</div>
-            <div class="form-widget">{{ form_widget(formpage.password.first) }}</div>
-        </div>
-        <div class="form-row">
-            <div class="form-label">{{ form_label(formpage.password.second) }}</div>
-            <div class="form-errors">{{ form_errors(formpage.password.second) }}</div>
-            <div class="form-widget">{{ form_widget(formpage.password.second) }}</div>
+            <div class="form-label">{{ form_label(formPage.slug) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.slug) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.slug) }}</div>
         </div>
         <div class="form-row">
             <div class="form-label">
-                {{ form_widget(formpage.isAdmin) }}
-                {{ form_label(formpage.isAdmin) }}
+                {{ form_widget(formPage.isActive) }}
+                {{ form_label(formPage.isActive) }}
             </div>
-            <div class="form-errors">{{ form_errors(formpage.isAdmin) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.isActive) }}</div>
         </div>
         <div class="form-row">
-            <div class="form-label">{{ form_label(formpage.avatar) }}</div>
-            <div class="form-errors">{{ form_errors(formpage.avatar) }}</div>
-            <div class="form-widget">{{ form_widget(formpage.avatar) }}</div>
+            <div class="form-label">{{ form_label(formPage.author) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.author) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.author) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.content) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.content) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.content) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.seoTitle) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.seoTitle) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.seoTitle) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.seoDescription) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.seoDescription) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.seoDescription) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.robots) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.robots) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.robots) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.seoOgTitle) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.seoOgTitle) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.seoOgTitle) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.seoOgDescription) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.seoOgDescription) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.seoOgDescription) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.seoOgSection) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.seoOgSection) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.seoOgSection) }}</div>
+        </div>
+        <div class="form-row">
+            <div class="form-label">{{ form_label(formPage.seoOgTags) }}</div>
+            <div class="form-errors">{{ form_errors(formPage.seoOgTags) }}</div>
+            <div class="form-widget">{{ form_widget(formPage.seoOgTags) }}</div>
         </div>
         <div>
             <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
-            {{ form_widget(formpage.save, { 'label': 'save_form' }) }}
+            {{ form_widget(formPage.save, { 'label': 'save_form' }) }}
         </div>
-        {{ form_end(formArticle) }}
+        {{ form_end(formPage) }}
     </div>
 {% endblock %}

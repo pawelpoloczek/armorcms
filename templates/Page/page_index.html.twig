@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'page.list' | trans }}</h1>
+        <div class="btn-container">
+            <a href="{{ path('web_page_create') }}" class="add-btn"><i class="fa fa-plus" ></i>&nbsp{{ 'page.add_new' | trans }}</a>
+        </div>
+        <table class="admin-table" id="dataTable">
+            <thead>
+                <tr>
+                    <td class="center">{{ 'table.delete' | trans }}</td>
+                    <td class="center">{{ 'table.id' | trans }}</td>
+                    <td>{{ 'page.title' | trans }}</td>
+                    <td>{{ 'page.slug' | trans }}</td>
+                    <td>{{ 'page.is_active' | trans }}</td>
+                    <td class="center">{{ 'table.actions' | trans }}</td>
+                </tr>
+            </thead>
+            <tbody>
+            {% for page in pages %}
+                <tr>
+                    <td class="center fs20">
+{#                        <a href="{{ path('web_page_delete', {'uuid': page.uuid}) }}" class="delete" title="{{ 'table.delete' | trans }}">#}
+{#                            <i class="fa fa-trash" ></i>#}
+{#                        </a>#}
+                    </td>
+                    <td class="center">{{page.uuid}}</td>
+                    <td>{{page.title}}</td>
+                    <td>{{page.slug}}</td>
+                    <td class="cell-text-center">
+                        {% if page.isActive %}
+                            {{ 'table.true' | trans }}
+{#                            <span class="active"></span>#}
+                        {% else %}
+                            {{ 'table.false' | trans }}
+{#                            <span class="inactive"></span>#}
+                        {% endif %}
+                    </td>
+                    <td class="center fs20">
+{#                        <a href="{{ path('web_page_edit', {'uuid': page.uuid}) }}" title="{{ 'table.edit' | trans }}">#}
+{#                            <i class="fa fa-pencil" ></i>#}
+{#                        </a>#}
+{#                        <a href="{{ path('web_page_view', {'uuid': page.uuid}) }}" title="{{ 'table.preview' | trans }}">#}
+{#                            <i class="fa fa-eye" ></i>#}
+{#                        </a>#}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

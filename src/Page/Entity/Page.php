@@ -6,6 +6,7 @@ namespace ArmorCMS\Page\Entity;
 use ArmorCMS\Page\Repository\PageRepository;
 use ArmorCMS\Shared\Trait\Blameable;
 use ArmorCMS\Shared\Trait\Identifyable;
+use ArmorCMS\Shared\Trait\SoftDeletable;
 use ArmorCMS\Shared\Trait\Timestampable;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
@@ -20,6 +21,7 @@ class Page
     use Identifyable;
     use Timestampable;
     use Blameable;
+    use SoftDeletable;
 
     public function __construct(
         #[ORM\Column(type: UuidType::NAME)]
