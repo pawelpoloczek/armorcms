@@ -9,8 +9,6 @@ For linux environment:
 - make start
 
 For Windows environment run these commands in your terminal:
-to start:
-    docker compose -f docker/docker-compose.yml build
 to build:
     docker compose -f docker/docker-compose.yml up -d
     docker exec armorcms-apache bin/composer install
@@ -18,3 +16,5 @@ to build:
     docker exec armorcms-apache php bin/console doctrine:migrations:migrate --no-interaction
     docker exec armorcms-apache php bin/console doctrine:fixtures:load --no-interaction
     docker exec armorcms-apache php bin/console armorcms:setup-upload-directories
+to start:
+    docker compose -f docker/docker-compose.yml build
