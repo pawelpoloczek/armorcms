@@ -1,0 +1,23 @@
+.ui-tabs {
+    margin-bottom: 10px;
+}
+
+.ui-tabs .ui-tabs-active {
+    background-color: #656F79;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    font-weight: bold;
+}
+
+.ui-tabs .ui-tabs-active a {
+    color: #FFF;
+}
+
+.ui-tabs .ui-tabs-panel {
+    border: solid 1px #656F79;
+}
+
+.ui-tabs .ui-tabs-nav {
+    padding: 0;
+}

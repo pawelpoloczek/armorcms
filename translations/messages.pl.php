@@ -129,4 +129,5 @@ return [
     'seo.ogTitle' => 'Tytuł SEO (Open Graph)',
     'seo.ogSection' => 'Sekcja SEO (Open Graph)',
     'seo.ogTags' => 'Tagi SEO (Open Graph)',
+    'seo.add_tag' => 'Dodaj nowy tag',
 ];

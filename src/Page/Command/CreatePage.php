@@ -13,7 +13,7 @@ final readonly class CreatePage
         public string $title,
         public string $slug,
         public bool $isActive,
-        public string $author,
+        public ?string $author,
         public string $content,
         public Seo $seo
     ) {

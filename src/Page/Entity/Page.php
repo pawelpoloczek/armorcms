@@ -35,7 +35,7 @@ class Page
         #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
         private ?DateTimeImmutable $publicationDate,
         #[ORM\Column(type: Types::STRING, length: 127)]
-        private string $author,
+        private ?string $author,
         #[ORM\Column(type: Types::TEXT)]
         private string $content,
         #[ORM\OneToOne(targetEntity: Seo::class)]
@@ -89,7 +89,7 @@ class Page
         $this->publicationDate = $publicationDate;
     }
 
-    public function getAuthor(): string
+    public function getAuthor(): ?string
     {
         return $this->author;
     }

@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class CreatePageType extends AbstractType
 {
@@ -31,6 +32,7 @@ final class CreatePageType extends AbstractType
             ])
             ->add('author', TextType::class, [
                 'label' => 'page.author',
+                'required' => false,
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'page.content',
@@ -63,12 +65,19 @@ final class CreatePageType extends AbstractType
             ])
             ->add('seoOgTags', CollectionType::class, [
                 'entry_type' => TextType::class,
+                'entry_options' => ['label' => false],
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,
-                'prototype_data' => 'New Tag Placeholder',
                 'label' => 'seo.ogTags',
             ])
             ->add('save', SubmitType::class);
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'csrf_protection' => false,
+        ]);
     }
 }
