@@ -26,6 +26,7 @@ final class CreatePageType extends AbstractType
                 'label' => 'page.slug',
             ])
             ->add('isActive', CheckboxType::class, [
+                'required' => false,
                 'attr' => ['class' => 'checkbox-custom'],
                 'label_attr' => ['class' => 'checkbox-custom-label'],
                 'label' => 'page.is_active',
@@ -46,6 +47,7 @@ final class CreatePageType extends AbstractType
                 'required' => false,
             ])
             ->add('robots', ChoiceType::class, [
+                'required' => false,
                 'label' => 'seo.robots',
                 'expanded' => false,
                 'multiple' => true,

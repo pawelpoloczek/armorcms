@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ArmorCMS\Web\Controller\User;
+namespace ArmorCMS\Web\Controller\Page;
 
-use ArmorCMS\User\Command\DeleteUser as DeleteUserCommand;
-use ArmorCMS\User\Repository\UserRepository;
+use ArmorCMS\Page\Command\DeletePage as DeletePageCommand;
+use ArmorCMS\Page\Repository\PageRepository;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
 use ArmorCMS\Web\Trait\FlashMessageTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,38 +18,38 @@ use Symfony\Component\Uid\Uuid;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(name: 'web_')]
-final class DeleteUser extends AbstractController
+final class DeletePage extends AbstractController
 {
     use FlashMessageTrait;
 
     public function __construct(
-        private readonly UserRepository $userRepository,
+        private readonly PageRepository $pageRepository,
         private readonly MessageBusInterface $commandBus,
         private readonly TranslatorInterface $translator
     ) {
     }
 
     #[Route(
-        'settings/users/delete/{uuid}',
-        name: 'user_delete',
+        'cms/pages/delete/{uuid}',
+        name: 'page_delete',
         requirements: ['uuid' => Requirement::UUID_V7],
         methods: [Request::METHOD_GET]
     )]
     public function __invoke(string $uuid, Request $request): Response
     {
-        $user = $this->userRepository->findByUuid(Uuid::fromString($uuid));
+        $page = $this->pageRepository->findByUuid(Uuid::fromString($uuid));
 
-        if (null === $user) {
-            $this->setFlashMessage($request, FlashMessageEnum::ERROR, $this->translator->trans('user.not_found'));
+        if (null === $page) {
+            $this->setFlashMessage($request, FlashMessageEnum::ERROR, $this->translator->trans('page.not_found'));
 
-            return $this->redirectToRoute('web_user_get_list');
+            return $this->redirectToRoute('web_page_get_list');
         }
 
         $this->commandBus->dispatch(
-            new DeleteUserCommand(Uuid::fromString($uuid))
+            new DeletePageCommand(Uuid::fromString($uuid))
         );
 
-        $this->setFlashMessage($request, FlashMessageEnum::DONE, $this->translator->trans('user.delete_success'));
-        return $this->redirectToRoute('web_user_get_list');
+        $this->setFlashMessage($request, FlashMessageEnum::DONE, $this->translator->trans('page.delete_success'));
+        return $this->redirectToRoute('web_page_get_list');
     }
 }

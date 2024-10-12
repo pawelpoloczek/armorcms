@@ -32,9 +32,9 @@ class Page
         private string $slug,
         #[ORM\Column(type: Types::BOOLEAN)]
         private bool $isActive,
-        #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+        #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
         private ?DateTimeImmutable $publicationDate,
-        #[ORM\Column(type: Types::STRING, length: 127)]
+        #[ORM\Column(type: Types::STRING, length: 127, nullable: true)]
         private ?string $author,
         #[ORM\Column(type: Types::TEXT)]
         private string $content,

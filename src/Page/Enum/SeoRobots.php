@@ -5,6 +5,7 @@ namespace ArmorCMS\Page\Enum;
 
 enum SeoRobots: string
 {
+    case ALL = 'all';
     case NOINDEX = 'noindex';
     case NOFOLLOW = 'nofollow';
     case NOARCHIVE = 'noarchive';
