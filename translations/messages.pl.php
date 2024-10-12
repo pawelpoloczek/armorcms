@@ -124,6 +124,8 @@ return [
     'page.content' => 'Treść',
     'page.not_found' => 'Strona nie została znaleziona',
     'page.delete_success' => 'Strona została usunięta pomyślnie',
+    'page.preview' => 'Szczegóły strony',
+    'page.publication_date' => 'Data publikacji',
     'seo.title' => 'Tytuł SEO',
     'seo.description' => 'Opis SEO',
     'seo.robots' => 'Tagi robots',

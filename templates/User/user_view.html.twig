@@ -18,7 +18,7 @@
         <div class="preview-row">
             <span class="preview-label">{{ 'user.is_admin' | trans }}:  </span>
             <span class="preview-value">
-                {% if user.admin %}{{ 'table.true' | trans }}{% else %}{{ 'table.false' | trans }}{% endif %}
+                {% if user.isAdmin %}{{ 'table.true' | trans }}{% else %}{{ 'table.false' | trans }}{% endif %}
             </span>
         </div>
         <div class="preview-row">
