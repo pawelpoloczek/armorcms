@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArmorCMS\Page\Entity;
@@ -25,16 +26,16 @@ class Seo
         private readonly Uuid $uuid,
         #[ORM\Column(type: Types::STRING, length: 127)]
         private string $title,
-        #[ORM\Column(type: Types::STRING, length: 255)]
-        private string $description,
+        #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $description,
         #[ORM\Column(type: Types::JSON)]
         private array $robots,
         #[ORM\Column(type: Types::STRING, length: 127)]
         private string $ogTitle,
-        #[ORM\Column(type: Types::STRING, length: 255)]
-        private string $ogDescription,
-        #[ORM\Column(type: Types::STRING, length: 127)]
-        private string $ogSection,
+        #[ORM\Column(type: Types::STRING, length: 255, nullable: true)]
+        private ?string $ogDescription,
+        #[ORM\Column(type: Types::STRING, length: 127, nullable: true)]
+        private ?string $ogSection,
         #[ORM\Column(type: Types::JSON)]
         private array $ogTags
     ) {
@@ -55,7 +56,7 @@ class Seo
         $this->title = $title;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -85,7 +86,7 @@ class Seo
         $this->ogTitle = $ogTitle;
     }
 
-    public function getOgDescription(): string
+    public function getOgDescription(): ?string
     {
         return $this->ogDescription;
     }
@@ -95,7 +96,7 @@ class Seo
         $this->ogDescription = $ogDescription;
     }
 
-    public function getOgSection(): string
+    public function getOgSection(): ?string
     {
         return $this->ogSection;
     }

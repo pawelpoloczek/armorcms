@@ -1,0 +1,32 @@
+.collection li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+.collection li button {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.collection li button:hover {
+    color: #e74c3c;;
+}
+
+.collection li input {
+    padding: 5px 10px;
+    margin-right: 2px;
+}
+
+.collection-btn {
+    padding: 0 15px;
+    background-color: #656F79;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    height: 45px;
+    line-height: 45px;
+}

@@ -14,12 +14,4 @@ $(document).ready(function () {
             "order": [[ 1, "desc" ]]
         });
     }
-
-    $('.tooltip').tooltipster({
-        animation: 'fade',
-        delay: 200,
-        theme: 'tooltipster-borderless',
-        trigger: 'click',
-        maxWidth: 600
-    });
 });
