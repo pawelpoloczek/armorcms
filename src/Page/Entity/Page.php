@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArmorCMS\Page\Entity;
@@ -6,7 +7,6 @@ namespace ArmorCMS\Page\Entity;
 use ArmorCMS\Page\Repository\PageRepository;
 use ArmorCMS\Shared\Trait\Blameable;
 use ArmorCMS\Shared\Trait\Identifyable;
-use ArmorCMS\Shared\Trait\SoftDeletable;
 use ArmorCMS\Shared\Trait\Timestampable;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
@@ -15,13 +15,13 @@ use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
-#[ORM\Table(name: 'page')]
+#[ORM\Table(name: "page")]
+#[ORM\UniqueConstraint(name: "slug", columns: ["slug"])]
 class Page
 {
     use Identifyable;
     use Timestampable;
     use Blameable;
-    use SoftDeletable;
 
     public function __construct(
         #[ORM\Column(type: UuidType::NAME)]

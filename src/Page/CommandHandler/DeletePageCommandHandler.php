@@ -25,8 +25,6 @@ final readonly class DeletePageCommandHandler implements CommandHandlerInterface
             return;
         }
 
-        $page->delete();
-
-        $this->entityManager->flush();
+        $this->entityManager->remove($page);
     }
 }
