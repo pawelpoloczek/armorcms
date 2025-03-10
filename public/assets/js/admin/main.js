@@ -9,7 +9,7 @@ $(document).ready(function () {
     const dataTable = $('#dataTable');
     if (dataTable.length) {
         dataTable.DataTable({
-            "language": {"url": "/assets/js/admin/dataTables.polish.lang"},
+            "language": {"url": "/assets/plugins/jquery/dataTables.polish.lang"},
             "lengthMenu": [ 10, 25, 50, 100 ],
             "order": [[ 1, "desc" ]]
         });
