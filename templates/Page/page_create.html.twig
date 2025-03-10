@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/assets/css/admin/collection-forms.css" />
     <link rel="stylesheet" href="/assets/css/admin/jquery-ui.min.css" />
     <link rel="stylesheet" href="/assets/css/admin/tabs.css" />
+    <link rel="stylesheet" href="/assets/plugins/ckeditor/ckeditor5.css" />
 {% endblock %}
 
 {% block javascripts %}
@@ -15,6 +16,45 @@
         $( function() {
             $( "#tabs" ).tabs();
         } );
+    </script>
+    <script type="importmap">
+        {
+            "imports": {
+                "ckeditor5": "/assets/plugins/ckeditor/ckeditor5.js",
+                "ckeditor5/": "/assets/plugins/ckeditor/"
+            }
+        }
+    </script>
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Paragraph,
+            Bold,
+            Italic,
+            Font,
+        } from 'ckeditor5';
+
+        import coreTranslations from '/assets/plugins/ckeditor/translations/pl.js';
+
+        ClassicEditor
+            .create( document.querySelector( '#editor' ), {
+                licenseKey: 'GPL',
+                plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+                toolbar: [
+                    'undo', 'redo', '|', 'bold', 'italic', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                ],
+                translations: [
+                    coreTranslations
+                ],
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
     </script>
 {% endblock %}
 
@@ -53,7 +93,9 @@
                 <div class="form-row">
                     <div class="form-label">{{ form_label(formPage.content) }}</div>
                     <div class="form-errors">{{ form_errors(formPage.content) }}</div>
-                    <div class="form-widget">{{ form_widget(formPage.content) }}</div>
+                    <div class="form-widget">
+                        {{ form_widget(formPage.content, { 'id': 'editor' }) }}
+                    </div>
                 </div>
             </div>
             <div id="tabs-2">
