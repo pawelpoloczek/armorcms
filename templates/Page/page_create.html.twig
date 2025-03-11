@@ -33,6 +33,7 @@
             Bold,
             Italic,
             Font,
+            Heading,
         } from 'ckeditor5';
 
         import coreTranslations from '/assets/plugins/ckeditor/translations/pl.js';
@@ -40,10 +41,10 @@
         ClassicEditor
             .create( document.querySelector( '#editor' ), {
                 licenseKey: 'GPL',
-                plugins: [ Essentials, Paragraph, Bold, Italic, Font ],
+                plugins: [ Essentials, Paragraph, Bold, Italic, Font, Heading ],
                 toolbar: [
-                    'undo', 'redo', '|', 'bold', 'italic', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                    'undo', 'redo', '|', 'heading', 'bold', 'italic', '|',
+                    'fontSize', 'fontColor', 'fontBackgroundColor', '|',
                 ],
                 translations: [
                     coreTranslations
@@ -94,7 +95,7 @@
                     <div class="form-label">{{ form_label(formPage.content) }}</div>
                     <div class="form-errors">{{ form_errors(formPage.content) }}</div>
                     <div class="form-widget">
-                        {{ form_widget(formPage.content, { 'id': 'editor' }) }}
+                        {{ form_widget(formPage.content) }}
                     </div>
                 </div>
             </div>
