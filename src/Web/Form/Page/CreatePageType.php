@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 final class CreatePageType extends AbstractType
 {
@@ -37,6 +38,12 @@ final class CreatePageType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'label' => 'page.content',
+                'required' => false,
+                'constraints' => [
+                    new Assert\NotBlank([
+                        'message' => 'To pole nie może być puste.',
+                    ]),
+                ],
             ])
             ->add('seoTitle', TextType::class, [
                 'label' => 'seo.title',
