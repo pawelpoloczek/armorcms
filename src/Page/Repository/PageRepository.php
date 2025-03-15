@@ -36,7 +36,7 @@ final class PageRepository extends EntityRepository
             $entity->getUuid(),
             $entity->getTitle(),
             $entity->isActive(),
-            $entity->getSlug()
+            $entity->getRoute()->getSlug()
         );
     }
 }
