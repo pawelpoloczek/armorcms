@@ -21,6 +21,50 @@
             <span class="preview-label">{{ 'page.publicationDate' | trans }}:  </span>
             <span class="preview-value">{{ page.publicationDate|date("d-m-Y H:i:s") }}</span>
         </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'page.author' | trans }}:  </span>
+            <span class="preview-value">{{ page.author }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'page.slug' | trans }}:  </span>
+            <span class="preview-value">{{ page.route.slug }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.title' | trans }}:  </span>
+            <span class="preview-value">{{ page.seo.title }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.description' | trans }}:  </span>
+            <span class="preview-value">{{ page.seo.description }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.robots' | trans }}:  </span>
+            <span class="preview-value">
+                {% for robot in page.seo.robots %}
+                    <span class="inline-element">{{ robot }}</span>
+                {% endfor %}
+            </span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.ogDescription' | trans }}:  </span>
+            <span class="preview-value">{{ page.seo.ogDescription }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.ogTitle' | trans }}:  </span>
+            <span class="preview-value">{{ page.seo.ogTitle }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.ogSection' | trans }}:  </span>
+            <span class="preview-value">{{ page.seo.ogSection }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'seo.ogTags' | trans }}:  </span>
+            <span class="preview-value">
+                {% for tag in page.seo.ogTags %}
+                    <span class="inline-element">{{ tag }}</span>
+                {% endfor %}
+            </span>
+        </div>
         <div>
             <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
             <a href="{{ path('web_page_edit', {'uuid': page.uuid}) }}" class="edit-btn"><i class="fa fa-pencil" ></i>&nbsp{{ 'edit' | trans }}</a>
