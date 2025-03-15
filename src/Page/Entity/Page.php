@@ -17,7 +17,6 @@ use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
 #[ORM\Table(name: "page")]
-#[ORM\UniqueConstraint(name: "slug", columns: ["slug"])]
 class Page
 {
     use Identifyable;
@@ -30,8 +29,6 @@ class Page
         private readonly Uuid $uuid,
         #[ORM\Column(type: Types::STRING, length: 255)]
         private string $title,
-        #[ORM\Column(type: Types::STRING, length: 255)]
-        private string $slug,
         #[ORM\Column(type: Types::BOOLEAN)]
         private bool $isActive,
         #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
@@ -40,6 +37,9 @@ class Page
         private ?string $author,
         #[ORM\Column(type: Types::TEXT)]
         private string $content,
+        #[ORM\OneToOne(targetEntity: Route::class)]
+        #[ORM\JoinColumn(name: 'route_id', referencedColumnName: 'id')]
+        private readonly Route $route,
         #[ORM\OneToOne(targetEntity: Seo::class)]
         #[ORM\JoinColumn(name: 'seo_id', referencedColumnName: 'id')]
         private readonly Seo $seo
@@ -59,16 +59,6 @@ class Page
     public function changeTitle(string $title): void
     {
         $this->title = $title;
-    }
-
-    public function getSlug(): string
-    {
-        return $this->slug;
-    }
-
-    public function changeSlug(string $slug): void
-    {
-        $this->slug = $slug;
     }
 
     public function isActive(): bool
@@ -114,5 +104,10 @@ class Page
     public function getSeo(): Seo
     {
         return $this->seo;
+    }
+
+    public function getRoute(): Route
+    {
+        return $this->route;    
     }
 }
