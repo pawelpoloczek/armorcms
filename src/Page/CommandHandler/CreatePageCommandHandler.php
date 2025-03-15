@@ -1,10 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArmorCMS\Page\CommandHandler;
 
 use ArmorCMS\Page\Command\CreatePage;
 use ArmorCMS\Page\Entity\Page;
+use ArmorCMS\Page\Entity\Route;
 use ArmorCMS\Page\Entity\Seo;
 use ArmorCMS\Shared\CommandHandler\CommandHandlerInterface;
 use DateTimeImmutable;
@@ -39,14 +41,20 @@ final readonly class CreatePageCommandHandler implements CommandHandlerInterface
             $publicationDate = new DateTimeImmutable();
         }
 
+        $route = new Route(
+            $this->uuidFactory->create(),
+            $command->slug
+        );
+        $this->entityManager->persist($route);
+
         $page = new Page(
             $command->uuid,
             $command->title,
-            $command->slug,
             $command->isActive,
             $publicationDate,
             $command->author,
             $command->content,
+            $route,
             $seo
         );
 
