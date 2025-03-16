@@ -27,6 +27,13 @@ final class TextBlockRepository extends EntityRepository
         parent::__construct($registry, TextBlock::class);
     }
 
+    public function save(TextBlock $entity): void
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($entity);
+        $entityManager->flush();
+    }
+
     /**
      * @param TextBlock $entity
      * @return TextBlockDTO
