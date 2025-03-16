@@ -40,6 +40,7 @@ services:
         exclude:
             - '../src/User/Entity/'
             - '../src/Page/Entity/'
+            - '../src/TextBlock/Entity/'
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed

@@ -1,6 +1,7 @@
 # TODO
 
 - dodać artykuły
+- wyciągać artykuły i seo przez DTO
 - dodać info boxy / text blocki
 - dodać galerie
 - dodać kategorie artykułów

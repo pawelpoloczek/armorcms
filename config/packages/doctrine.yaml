@@ -26,6 +26,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Page/Entity'
                 prefix: 'ArmorCMS\Page\Entity'
                 alias: Page
+            TextBlock:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/TextBlock/Entity'
+                prefix: 'ArmorCMS\TextBlock\Entity'
+                alias: TextBlock
         controller_resolver:
             auto_mapping: false
 
