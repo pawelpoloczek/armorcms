@@ -13,6 +13,7 @@ abstract class EntityRepository extends ServiceEntityRepository implements Itera
 {
     private const BATCH_COUNT = 100;
 
+    abstract public function getForPreview(Uuid $uuid): object;
     abstract protected function getMappedEntity(mixed $entity): mixed;
 
     public function findAllIterable(): iterable

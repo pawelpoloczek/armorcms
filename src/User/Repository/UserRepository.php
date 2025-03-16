@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArmorCMS\User\Repository;
 
+use ArmorCMS\Shared\Exception\EntityNotFound;
 use ArmorCMS\Shared\Repository\EntityRepository;
 use ArmorCMS\User\DTO\GetUser;
 use ArmorCMS\User\Entity\User;
@@ -24,6 +26,17 @@ final class UserRepository extends EntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
+    }
+
+    public function getForPreview(Uuid $uuid): object
+    {
+        $entity = $this->findByUuid($uuid);
+        if (null === $entity) {
+            throw new EntityNotFound($uuid, User::class);
+        }
+
+        // @todo - return DTO
+        return $entity;
     }
 
     /**

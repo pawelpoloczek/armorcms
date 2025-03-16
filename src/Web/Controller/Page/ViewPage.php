@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ArmorCMS\Web\Controller\Page;
 
 use ArmorCMS\Page\Repository\PageRepository;
+use ArmorCMS\Shared\Exception\EntityNotFound;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
 use ArmorCMS\Web\Trait\FlashMessageTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -36,8 +37,9 @@ final class ViewPage extends AbstractController
         string $uuid,
         Request $request
     ): Response {
-        $page = $this->pageRepository->findByUuid(Uuid::fromString($uuid));
-        if (null === $page) {
+        try {
+        $page = $this->pageRepository->getForPreview(Uuid::fromString($uuid));
+        } catch (EntityNotFound) {
             $this->setFlashMessage(
                 $request,
                 FlashMessageEnum::ERROR,

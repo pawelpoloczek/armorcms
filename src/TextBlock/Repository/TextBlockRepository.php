@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ArmorCMS\TextBlock\Repository;
 
+use ArmorCMS\Shared\Exception\EntityNotFound;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use ArmorCMS\Shared\Repository\EntityRepository;
@@ -32,6 +33,17 @@ final class TextBlockRepository extends EntityRepository
         $entityManager = $this->getEntityManager();
         $entityManager->persist($entity);
         $entityManager->flush();
+    }
+
+    public function getForPreview(Uuid $uuid): object
+    {
+        $entity = $this->findByUuid($uuid);
+        if (null === $entity) {
+            throw new EntityNotFound($uuid, TextBlock::class);
+        }
+
+        // @todo - return DTO
+        return $entity;
     }
 
     /**

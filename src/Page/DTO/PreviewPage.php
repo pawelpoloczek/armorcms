@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace ArmorCMS\Page\Command;
+namespace ArmorCMS\Page\DTO;
 
-use ArmorCMS\Page\DTO\CreateSeo;
+use DateTimeImmutable;
 use Symfony\Component\Uid\Uuid;
 
-final readonly class CreatePage
+final readonly class PreviewPage
 {
     public function __construct(
         public Uuid $uuid,
         public string $title,
-        public string $slug,
         public bool $isActive,
+        public string $slug,
+        public ?DateTimeImmutable $publicationDate,
         public ?string $author,
-        public string $content,
-        public CreateSeo $seo
+        public PreviewSeo $seo,
     ) {}
 }

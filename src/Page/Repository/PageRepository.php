@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace ArmorCMS\Page\Repository;
 
 use ArmorCMS\Page\DTO\Page as PageDTO;
+use ArmorCMS\Page\DTO\PreviewPage;
+use ArmorCMS\Page\DTO\PreviewSeo;
 use ArmorCMS\Page\Entity\Page;
+use ArmorCMS\Shared\Exception\EntityNotFound;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use ArmorCMS\Shared\Repository\EntityRepository;
@@ -25,6 +28,34 @@ final class PageRepository extends EntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Page::class);
+    }
+
+    public function getForPreview(Uuid $uuid): object
+    {
+        $entity = $this->findByUuid($uuid);
+        if (null === $entity) {
+            throw new EntityNotFound($uuid, Page::class);
+        }
+
+        $seo = new PreviewSeo(
+            $entity->getSeo()?->getTitle(),
+            $entity->getSeo()?->getDescription(),
+            $entity->getSeo()?->getRobots(),
+            $entity->getSeo()?->getOgTitle(),
+            $entity->getSeo()?->getOgDescription(),
+            $entity->getSeo()?->getOgSection(),
+            $entity->getSeo()?->getOgTags(),
+        );
+
+        return new PreviewPage(
+            $entity->getUuid(),
+            $entity->getTitle(),
+            $entity->isActive(),
+            $entity->getRoute()->getSlug(),
+            $entity->getPublicationDate(),
+            $entity->getAuthor(),
+            $seo
+        );
     }
 
     /**

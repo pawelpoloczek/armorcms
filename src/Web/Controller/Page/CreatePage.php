@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace ArmorCMS\Web\Controller\Page;
 
 use ArmorCMS\Page\Command\CreatePage as CreatePageCommand;
-use ArmorCMS\Page\DTO\Seo;
+use ArmorCMS\Page\DTO\CreateSeo;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
 use ArmorCMS\Web\Form\Page\CreatePageType;
 use ArmorCMS\Web\Trait\FlashMessageTrait;
@@ -26,8 +26,7 @@ final class CreatePage extends AbstractController
         private readonly UuidFactory $uuidFactory,
         private readonly MessageBusInterface $commandBus,
         private readonly TranslatorInterface $translator
-    ) {
-    }
+    ) {}
 
     #[Route(
         '/cms/pages/create',
@@ -51,7 +50,7 @@ final class CreatePage extends AbstractController
                     $form->getData()['isActive'],
                     $form->getData()['author'],
                     $form->getData()['content'],
-                    new     Seo(
+                    new CreateSeo(
                         $this->uuidFactory->create(),
                         $form->getData()['seoTitle'],
                         $form->getData()['seoDescription'],

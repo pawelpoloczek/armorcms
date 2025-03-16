@@ -1,14 +1,12 @@
 <?php
+
 declare(strict_types=1);
 
 namespace ArmorCMS\Page\DTO;
 
-use Symfony\Component\Uid\Uuid;
-
-final readonly class Seo
+final readonly class PreviewSeo
 {
     public function __construct(
-        public Uuid $uuid,
         public ?string $title,
         public ?string $description,
         public array $robots,
@@ -16,6 +14,5 @@ final readonly class Seo
         public ?string $ogDescription,
         public ?string $ogSection,
         public array $ogTags
-    ) {
-    }
+    ) {}
 }
