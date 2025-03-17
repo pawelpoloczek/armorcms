@@ -12,13 +12,13 @@
             <span class="preview-value">{{ page.title }}</span>
         </div>
         <div class="preview-row">
-            <span class="preview-label">{{ 'page.isActive' | trans }}:  </span>
+            <span class="preview-label">{{ 'page.is_active' | trans }}:  </span>
             <span class="preview-value">
                 {% if page.isActive %}{{ 'table.true' | trans }}{% else %}{{ 'table.false' | trans }}{% endif %}
             </span>
         </div>
         <div class="preview-row">
-            <span class="preview-label">{{ 'page.publicationDate' | trans }}:  </span>
+            <span class="preview-label">{{ 'page.publication_date' | trans }}:  </span>
             <span class="preview-value">{{ page.publicationDate|date("d-m-Y H:i:s") }}</span>
         </div>
         <div class="preview-row">

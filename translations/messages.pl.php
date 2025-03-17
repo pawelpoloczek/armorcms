@@ -122,6 +122,7 @@ return [
     'page.add_success' => 'Strona została pomyślnie dodana',
     'page.author' => 'Autor',
     'page.content' => 'Treść',
+    'page.publication_date' => "Data publikacji",
     'page.not_found' => 'Strona nie została znaleziona',
     'page.delete_success' => 'Strona została usunięta pomyślnie',
     'page.preview' => 'Szczegóły strony',
