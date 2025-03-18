@@ -58,6 +58,15 @@ final class PageRepository extends EntityRepository
         );
     }
 
+    public function save(Page $page): void
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($page->getSeo());
+        $entityManager->persist($page->getRoute());
+        $entityManager->persist($page);
+        $entityManager->flush();
+    }
+
     /**
      * @param Page $entity
      * @return PageDTO
