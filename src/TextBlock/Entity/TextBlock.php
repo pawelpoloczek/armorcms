@@ -31,7 +31,9 @@ class TextBlock
         #[ORM\Column(type: Types::BOOLEAN)]
         private bool $isActive,
         #[ORM\Column(type: Types::TEXT)]
-        private string $content
+        private string $content,
+        #[ORM\Column(type: Types::TEXT, nullable: true)]
+        private ?string $description,
     ) {
     }
 
@@ -68,5 +70,15 @@ class TextBlock
     public function changeContent(string $content): void
     {
         $this->content = $content;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function changeDescription(string $description): void
+    {
+        $this->description = $description;
     }
 }

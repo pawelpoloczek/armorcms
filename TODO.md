@@ -3,7 +3,6 @@
 - dodać i obsłużyć DTO dla preview usera + avatar
 - dodać i obsłużyć DTO dla text block
 - dodać edycję artykułów
-- wyciągać artykuły i seo przez DTO
 - dodać info boxy / text blocki
 - dodać galerie
 - dodać kategorie artykułów
