@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ArmorCMS\Web\Controller\Page;
+namespace ArmorCMS\Web\Controller\TextBlock;
 
 use ArmorCMS\TextBlock\Command\CreateTextBlock as CreateTextBlockCommand;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
@@ -43,7 +43,11 @@ final class CreateTextBlock extends AbstractController
 
             $this->commandBus->dispatch(
                 new CreateTextBlockCommand(
-                    $textblockUuid
+                    $textblockUuid,
+                    $form->getData()['title'],
+                    $form->getData()['isActive'],
+                    $form->getData()['content'],
+                    $form->getData()['description'],
                 )
             );
 

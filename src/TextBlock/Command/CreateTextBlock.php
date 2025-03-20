@@ -13,5 +13,6 @@ final readonly class CreateTextBlock
         public string $title,
         public bool $isActive,
         public string $content,
+        public ?string $description,
     ) {}
 }

@@ -28,7 +28,7 @@ final class CreateTextBlockType extends AbstractType
                 'label' => 'textblock.is_active',
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'page.content',
+                'label' => 'textblock.content',
                 'required' => false,
                 'constraints' => [
                     new Assert\NotBlank([
