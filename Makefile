@@ -16,3 +16,5 @@ migrate:
 fixtures:
 	docker exec armorcms-apache php bin/console doctrine:migrations:migrate --no-interaction
 	docker exec armorcms-apache php bin/console doctrine:fixtures:load --no-interaction
+enter:
+	docker exec -it armorcms-apache bash
