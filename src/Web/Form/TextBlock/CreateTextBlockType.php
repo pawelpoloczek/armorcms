@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ArmorCMS\Web\Form\Page;
+namespace ArmorCMS\Web\Form\TextBlock;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;

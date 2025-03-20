@@ -19,6 +19,13 @@
                         </a>
                     </li>
                 </ul>
+                <ul {% if 'textblock' in actualPath %}style="display: block;"{% endif %}>
+                    <li>
+                        <a href="{{ path('web_textblock_get_list') }}"  {% if actualPath == path('web_textblock_get_list') %}class="active"{% endif %}>
+                            <i class="fa fa-align-left" ></i>{{ 'menu.textblocks' | trans }}
+                        </a>
+                    </li>
+                </ul>
             </li>
             {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_ROOT') %}
             <li class="menu-toggle">

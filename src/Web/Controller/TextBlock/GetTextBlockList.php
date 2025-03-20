@@ -26,7 +26,7 @@ final class GetTextBlockList extends AbstractController
     public function __invoke(): Response
     {
         return $this->render('TextBlock/textblock_index.html.twig', [
-            'textBlocks' => $this->textBlockRepository->findAllIterable(),
+            'textblocks' => $this->textBlockRepository->findAllIterable(),
         ]);
     }
 }

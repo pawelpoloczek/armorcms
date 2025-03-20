@@ -6,7 +6,7 @@ namespace ArmorCMS\Web\Controller\TextBlock;
 
 use ArmorCMS\TextBlock\Command\CreateTextBlock as CreateTextBlockCommand;
 use ArmorCMS\Web\Enum\FlashMessageEnum;
-use ArmorCMS\Web\Form\Page\CreateTextBlockType;
+use ArmorCMS\Web\Form\TextBlock\CreateTextBlockType;
 use ArmorCMS\Web\Trait\FlashMessageTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
