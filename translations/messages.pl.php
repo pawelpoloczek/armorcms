@@ -135,4 +135,9 @@ return [
     'seo.ogSection' => 'Sekcja SEO (Open Graph)',
     'seo.ogTags' => 'Tagi SEO (Open Graph)',
     'seo.add_tag' => 'Dodaj nowy tag',
+    'textblock.add_success' => 'Blok tekstowy został pomyślnie dodany',
+    'textblock.title' => 'Tytuł',
+    'textblock.is_active' => 'Aktywny',
+    'textblock.content' => 'Treść',
+    'textblock.description' => 'Opis',
 ];
