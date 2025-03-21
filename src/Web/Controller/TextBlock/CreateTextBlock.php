@@ -44,7 +44,7 @@ final class CreateTextBlock extends AbstractController
             $this->commandBus->dispatch(
                 new CreateTextBlockCommand(
                     $textblockUuid,
-                    $form->getData()['title'],
+                    $form->getData()['blockKey'],
                     $form->getData()['isActive'],
                     $form->getData()['content'],
                     $form->getData()['description'],

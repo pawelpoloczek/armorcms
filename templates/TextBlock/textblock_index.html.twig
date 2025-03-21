@@ -11,7 +11,7 @@
                 <tr>
                     <td class="center">{{ 'table.delete' | trans }}</td>
                     <td class="center">{{ 'table.id' | trans }}</td>
-                    <td>{{ 'textblock.title' | trans }}</td>
+                    <td>{{ 'textblock.blockKey' | trans }}</td>
                     <td>{{ 'textblock.is_active' | trans }}</td>
                     <td>{{ 'textblock.description' | trans }}</td>
                     <td class="center">{{ 'table.actions' | trans }}</td>
@@ -26,7 +26,7 @@
                         </a> #}
                     </td>
                     <td class="center">{{textblock.uuid}}</td>
-                    <td>{{textblock.title}}</td>
+                    <td>{{textblock.blockKey}}</td>
                     <td class="cell-text-center">
                         {% if textblock.isActive %}
                             {{ 'table.true' | trans }}

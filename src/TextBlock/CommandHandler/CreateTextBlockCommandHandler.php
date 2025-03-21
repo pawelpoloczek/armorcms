@@ -23,6 +23,7 @@ final readonly class CreateTextBlockCommandHandler implements CommandHandlerInte
                 $command->title,
                 $command->isActive,
                 $command->content,
+                $command->description,
             )
         );
     }

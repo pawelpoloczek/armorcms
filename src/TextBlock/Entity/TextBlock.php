@@ -13,6 +13,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Types\UuidType;
 use Symfony\Component\Uid\Uuid;
+use Symfony\Component\Validator\Constraints\Regex;
 
 #[ORM\Entity(repositoryClass: TextBlockRepository::class)]
 #[ORM\Table(name: "text_block")]
@@ -26,8 +27,12 @@ class TextBlock
     public function __construct(
         #[ORM\Column(type: UuidType::NAME)]
         private readonly Uuid $uuid,
-        #[ORM\Column(type: Types::STRING, length: 255)]
-        private string $title,
+        #[ORM\Column(type: Types::STRING, length: 63, unique: true)]
+        #[Regex(
+            pattern: "/^[a-z-]+$/",
+            message: "To pole może zawierać tylko małe litery (a-z) oraz myślnik (-)."
+        )]
+        private string $blockKey,
         #[ORM\Column(type: Types::BOOLEAN)]
         private bool $isActive,
         #[ORM\Column(type: Types::TEXT)]
@@ -42,14 +47,14 @@ class TextBlock
         return $this->uuid;
     }
 
-    public function getTitle(): string
+    public function getBlockKey(): string
     {
-        return $this->title;
+        return $this->blockKey;
     }
 
-    public function changeTitle(string $title): void
+    public function changeBlockKey(string $blockKey): void
     {
-        $this->title = $title;
+        $this->blockKey = $blockKey;
     }
 
     public function isActive(): bool

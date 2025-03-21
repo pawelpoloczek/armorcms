@@ -12,14 +12,25 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 final class CreateTextBlockType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', TextType::class, [
-                'label' => 'textblock.title',
+            ->add('blockKey', TextType::class, [
+                'label' => 'textblock.blockKey',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(['max' => 63]),
+                    new Regex([
+                        'pattern' => "/^[a-z-]+$/",
+                        'message' => "To pole może zawierać tylko małe litery (bez polskich znaków) oraz myślnik (-).",
+                    ]),
+                ],
             ])
             ->add('isActive', CheckboxType::class, [
                 'required' => false,

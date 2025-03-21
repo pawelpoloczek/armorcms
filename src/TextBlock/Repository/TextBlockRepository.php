@@ -53,8 +53,10 @@ final class TextBlockRepository extends EntityRepository
     protected function getMappedEntity(mixed $entity): mixed
     {
         return new TextBlockDTO(
+            $entity->getUuid(),
+            $entity->getBlockKey(),
             $entity->isActive(),
-            $entity->getContent()
+            $entity->getDescription(),
         );
     }
 }

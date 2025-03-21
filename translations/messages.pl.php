@@ -136,13 +136,13 @@ return [
     'seo.ogTags' => 'Tagi SEO (Open Graph)',
     'seo.add_tag' => 'Dodaj nowy tag',
     'textblock.add_success' => 'Blok tekstowy został pomyślnie dodany',
-    'textblock.title' => 'Tytuł',
+    'textblock.blockKey' => 'Klucz',
     'textblock.is_active' => 'Aktywny',
     'textblock.content' => 'Treść',
     'textblock.description' => 'Opis',
     'menu.textblocks' => 'Bloki tekstowe',
-    'textblock.list' => 'Lista bloków ttekstowych',
+    'textblock.list' => 'Lista bloków tekstowych',
     'textblock.add_new' => 'Dodaj nowy blok tekstowy',
     'textblock.add' => 'Dodawanie bloku tekstowego',
-    
+
 ];
