@@ -140,4 +140,9 @@ return [
     'textblock.is_active' => 'Aktywny',
     'textblock.content' => 'Treść',
     'textblock.description' => 'Opis',
+    'menu.textblocks' => 'Bloki tekstowe',
+    'textblock.list' => 'Lista bloków ttekstowych',
+    'textblock.add_new' => 'Dodaj nowy blok tekstowy',
+    'textblock.add' => 'Dodawanie bloku tekstowego',
+    
 ];
