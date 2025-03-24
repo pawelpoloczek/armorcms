@@ -10,7 +10,6 @@
             <thead>
                 <tr>
                     <td class="center">{{ 'table.delete' | trans }}</td>
-                    <td class="center">{{ 'table.id' | trans }}</td>
                     <td>{{ 'textblock.blockKey' | trans }}</td>
                     <td>{{ 'textblock.is_active' | trans }}</td>
                     <td>{{ 'textblock.description' | trans }}</td>
@@ -21,11 +20,10 @@
             {% for textblock in textblocks %}
                 <tr>
                     <td class="center fs20">
-                        {# <a href="{{ path('web_page_delete', {'uuid': page.uuid}) }}" class="delete" title="{{ 'table.delete' | trans }}">
+                        <a href="{{ path('web_textblock_delete', {'uuid': textblock.uuid}) }}" class="delete" title="{{ 'table.delete' | trans }}">
                             <i class="fa fa-trash" ></i>
-                        </a> #}
+                        </a>
                     </td>
-                    <td class="center">{{textblock.uuid}}</td>
                     <td>{{textblock.blockKey}}</td>
                     <td class="cell-text-center">
                         {% if textblock.isActive %}
