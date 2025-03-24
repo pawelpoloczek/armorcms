@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'textblock.preview' | trans }}</h1>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'table.id' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.uuid }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.blockKey' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.blockKey }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.is_active' | trans }}:  </span>
+            <span class="preview-value">
+                {% if textblock.isActive %}{{ 'table.true' | trans }}{% else %}{{ 'table.false' | trans }}{% endif %}
+            </span>
+        </div>
+        <div>
+            <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
+            {# <a href="{{ path('web_page_edit', {'uuid': textblock.uuid}) }}" class="edit-btn"><i class="fa fa-pencil" ></i>&nbsp{{ 'edit' | trans }}</a> #}
+        </div>
+    </div>
+{% endblock %}
