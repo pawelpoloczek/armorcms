@@ -12,14 +12,12 @@
             	<a href="#" {% if 'cms' in actualPath %}class="active"{% endif %}>
             		<i class="fa fa-file-text" ></i>{{ 'menu.cms' | trans }}
             	</a>
-                <ul {% if 'pages' in actualPath %}style="display: block;"{% endif %}>
+                <ul {% if 'cms' in actualPath %}style="display: block;"{% endif %}>
                     <li>
                         <a href="{{ path('web_page_get_list') }}"  {% if actualPath == path('web_page_get_list') %}class="active"{% endif %}>
                             <i class="fa fa-files-o" ></i>{{ 'menu.pages' | trans }}
                         </a>
                     </li>
-                </ul>
-                <ul {% if 'textblock' in actualPath %}style="display: block;"{% endif %}>
                     <li>
                         <a href="{{ path('web_textblock_get_list') }}"  {% if actualPath == path('web_textblock_get_list') %}class="active"{% endif %}>
                             <i class="fa fa-align-left" ></i>{{ 'menu.textblocks' | trans }}
