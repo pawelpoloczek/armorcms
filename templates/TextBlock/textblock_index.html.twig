@@ -37,9 +37,9 @@
 {#                        <a href="{{ path('web_page_edit', {'uuid': page.uuid}) }}" title="{{ 'table.edit' | trans }}">#}
 {#                            <i class="fa fa-pencil" ></i>#}
 {#                        </a>#}
-                        {# <a href="{{ path('web_page_view', {'uuid': page.uuid}) }}" title="{{ 'table.preview' | trans }}">
+                        <a href="{{ path('web_textblock_view', {'uuid': textblock.uuid}) }}" title="{{ 'table.preview' | trans }}">
                             <i class="fa fa-eye" ></i>
-                        </a> #}
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

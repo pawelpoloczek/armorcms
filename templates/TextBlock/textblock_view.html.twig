@@ -8,6 +8,22 @@
             <span class="preview-value">{{ textblock.uuid }}</span>
         </div>
         <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.createdAt' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.createdAt ? textblock.createdAt|date('d-m-Y H:i:s') : '' }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.updatedAt' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.updatedAt ? textblock.updatedAt|date('d-m-Y H:i:s') : '' }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.createdBy' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.createdBy }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.updatedBy' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.updatedBy }}</span>
+        </div>
+        <div class="preview-row">
             <span class="preview-label">{{ 'textblock.blockKey' | trans }}:  </span>
             <span class="preview-value">{{ textblock.blockKey }}</span>
         </div>
@@ -16,6 +32,14 @@
             <span class="preview-value">
                 {% if textblock.isActive %}{{ 'table.true' | trans }}{% else %}{{ 'table.false' | trans }}{% endif %}
             </span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'table.description' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.description }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'textblock.content' | trans }}:  </span>
+            <span class="preview-value">{{ textblock.content }}</span>
         </div>
         <div>
             <a href="{{app.request.headers.get('referer')}}" class="return-btn"><i class="fa fa-arrow-left" ></i>&nbsp{{ 'return' | trans }}</a>
