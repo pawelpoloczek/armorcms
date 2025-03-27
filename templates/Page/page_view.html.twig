@@ -8,6 +8,22 @@
             <span class="preview-value">{{ page.uuid }}</span>
         </div>
         <div class="preview-row">
+            <span class="preview-label">{{ 'preview.created_at' | trans }}:  </span>
+            <span class="preview-value">{{ page.createdAt ? page.createdAt|date('d-m-Y H:i:s') : '' }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'preview.updated_at' | trans }}:  </span>
+            <span class="preview-value">{{ page.updatedAt ? page.updatedAt|date('d-m-Y H:i:s') : '' }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'preview.created_by' | trans }}:  </span>
+            <span class="preview-value">{{ page.createdBy }}</span>
+        </div>
+        <div class="preview-row">
+            <span class="preview-label">{{ 'preview.updated_by' | trans }}:  </span>
+            <span class="preview-value">{{ page.updatedBy }}</span>
+        </div>
+        <div class="preview-row">
             <span class="preview-label">{{ 'page.title' | trans }}:  </span>
             <span class="preview-value">{{ page.title }}</span>
         </div>

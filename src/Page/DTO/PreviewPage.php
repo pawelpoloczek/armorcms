@@ -11,6 +11,10 @@ final readonly class PreviewPage
 {
     public function __construct(
         public Uuid $uuid,
+        public DateTimeImmutable $createdAt,
+        public ?DateTimeImmutable $updatedAt,
+        public string $createdBy,
+        public ?string $updatedBy,
         public string $title,
         public bool $isActive,
         public string $slug,

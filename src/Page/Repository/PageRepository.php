@@ -49,6 +49,10 @@ final class PageRepository extends EntityRepository
 
         return new PreviewPage(
             $entity->getUuid(),
+            $entity->getCreatedAt(),
+            $entity->getUpdatedAt(),
+            $entity->getCreatedBy(),
+            $entity->getUpdatedBy(),
             $entity->getTitle(),
             $entity->isActive(),
             $entity->getRoute()->getSlug(),
