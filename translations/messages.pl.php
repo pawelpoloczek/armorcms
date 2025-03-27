@@ -144,5 +144,7 @@ return [
     'textblock.list' => 'Lista bloków tekstowych',
     'textblock.add_new' => 'Dodaj nowy blok tekstowy',
     'textblock.add' => 'Dodawanie bloku tekstowego',
-
+    'textblock.not_found' => 'Blok tekstowy nie został znaleziony',
+    'textblock.preview' => 'Szczegóły bloku tekstowego',
+    'textblock.delete_success' => 'Blok tekstowy został pomyślnie usunięty',
 ];
