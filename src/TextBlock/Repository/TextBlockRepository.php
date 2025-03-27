@@ -8,6 +8,7 @@ use ArmorCMS\Shared\Exception\EntityNotFound;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use ArmorCMS\Shared\Repository\EntityRepository;
+use ArmorCMS\TextBlock\DTO\PreviewTextBlock;
 use ArmorCMS\TextBlock\DTO\TextBlock as TextBlockDTO;
 use ArmorCMS\TextBlock\Entity\TextBlock;
 use Symfony\Component\Uid\Uuid;
@@ -42,8 +43,17 @@ final class TextBlockRepository extends EntityRepository
             throw new EntityNotFound($uuid, TextBlock::class);
         }
 
-        // @todo - return DTO
-        return $entity;
+        return new PreviewTextBlock(
+            $entity->getUuid(),
+            $entity->getCreatedAt(),
+            $entity->getUpdatedAt(),
+            $entity->getCreatedBy(),
+            $entity->getUpdatedBy(),
+            $entity->getBlockKey(),
+            $entity->isActive(),
+            $entity->getDescription(),
+            $entity->getContent(),
+        );
     }
 
     /**
