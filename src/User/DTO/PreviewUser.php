@@ -9,6 +9,7 @@ use Symfony\Component\Uid\Uuid;
 final readonly class PreviewUser
 {
     public function __construct(
+        public int $id,
         public Uuid $uuid,
         public DateTimeImmutable $createdAt,
         public ?DateTimeImmutable $updatedAt,
@@ -18,7 +19,6 @@ final readonly class PreviewUser
         public string $email,
         public bool $isAdmin,
         public array $roles,
-        public ?Avatar $avatar,
     ) {
     }
 }

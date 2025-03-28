@@ -39,7 +39,7 @@ final class ViewUser extends AbstractController
         string $uuid,
         Request $request
     ): Response {
-        $user = $this->userRepository->findByUuid(Uuid::fromString($uuid));
+        $user = $this->userRepository->getForPreview(Uuid::fromString($uuid));
         if (null === $user) {
             $this->setFlashMessage(
                 $request,
@@ -50,7 +50,7 @@ final class ViewUser extends AbstractController
             return $this->redirectToRoute('web_user_get_list');
         }
 
-        $avatar = $this->avatarRepository->findOneBy(['user' => $user]);
+        $avatar = $this->avatarRepository->findOneBy(['user' => $user->id]);
         if (null !== $avatar) {
             $avatar = sprintf(
                 '%s/%s/%s',

@@ -36,9 +36,8 @@ final class UserRepository extends EntityRepository
             throw new EntityNotFound($uuid, User::class);
         }
 
-        $avatar = null;
-        
         return new PreviewUser(
+            $entity->getId(),
             $entity->getUuid(),
             $entity->getCreatedAt(),
             $entity->getUpdatedAt(),
@@ -48,7 +47,6 @@ final class UserRepository extends EntityRepository
             $entity->getEmail(),
             $entity->isAdmin(),
             $entity->getRoles(),
-            $avatar,
         );
     }
 
