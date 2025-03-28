@@ -7,6 +7,7 @@ namespace ArmorCMS\User\Repository;
 use ArmorCMS\Shared\Exception\EntityNotFound;
 use ArmorCMS\Shared\Repository\EntityRepository;
 use ArmorCMS\User\DTO\GetUser;
+use ArmorCMS\User\DTO\PreviewUser;
 use ArmorCMS\User\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -35,8 +36,20 @@ final class UserRepository extends EntityRepository
             throw new EntityNotFound($uuid, User::class);
         }
 
-        // @todo - return DTO
-        return $entity;
+        $avatar = null;
+        
+        return new PreviewUser(
+            $entity->getUuid(),
+            $entity->getCreatedAt(),
+            $entity->getUpdatedAt(),
+            $entity->getCreatedBy(),
+            $entity->getUpdatedBy(),
+            $entity->getUsername(),
+            $entity->getEmail(),
+            $entity->isAdmin(),
+            $entity->getRoles(),
+            $avatar,
+        );
     }
 
     /**
